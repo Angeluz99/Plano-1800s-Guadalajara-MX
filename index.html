@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Histórico de Guadalajara</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background-color: #f4e4bc; /* Color estilo pergamino */
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal del mapa */
+        .map-container {
+            position: relative; /* Vital: hace que los puntos se posicionen relativos a esto */
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 5px solid #4a3b2a;
+        }
+
+        /* La imagen del mapa de fondo */
+        .map-image {
+            width: 100%;
+            display: block; /* Elimina espacios extra debajo de la imagen */
+            filter: sepia(30%); /* Le da un toque más antiguo */
+        }
+
+        /* El Punto Interactivo (Hotspot) */
+        .hotspot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(180, 50, 50, 0.8);
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10;
+            
+            /* Animación de pulso para que se note */
+            box-shadow: 0 0 0 rgba(180, 50, 50, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        /* Coordenadas del punto (Ejemplo: Catedral) */
+        .point-1 {
+            bottom: 53%;  /* Distancia desde arriba */
+            left: 52%; /* Distancia desde la izquierda */
+        }
+
+        .hotspot:hover {
+            transform: scale(1.2);
+            background-color: red;
+        }
+
+        /* La Ventana Emergente (Tooltip) */
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 250px;
+            background-color: #fff8e1;
+            border: 1px solid #8d6e63;
+            padding: 10px;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 30px; /* Aparece encima del punto */
+            left: 50%;
+            transform: translateX(-50%); /* Centrar respecto al punto */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: opacity 0.3s ease, visibility 0.3s;
+            z-index: 20;
+            pointer-events: none; /* Evita parpadeos al mover el mouse */
+        }
+
+        /* Mostrar el tooltip al hacer hover en el hotspot */
+        .hotspot:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Imagen dentro del tooltip */
+        .tooltip img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .tooltip h3 {
+            margin: 0 0 5px 0;
+            color: #5d4037;
+            font-size: 16px;
+        }
+
+        .tooltip p {
+            margin: 0;
+            font-size: 12px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(180, 50, 50, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map-container">
+        <img src="mapa 1800s.png" alt="Mapa Antiguo Guadalajara" class="map-image">
+
+        <div class="hotspot point-1">
+            <div class="tooltip">
+                <img src="Catedral.jpg" alt="Catedral">
+                <h3>Catedral de la Asunción</h3>
+                <p>En 1800, esta Catedral no tenía sus famosas torres de aguja neogóticas actuales. Poseía unas torres originales más bajas y chatas, que colapsarían trágicamente poco después, durante el gran terremoto de 1818.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
