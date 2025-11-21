@@ -65,7 +65,7 @@ body {
     font-size: 0.3rem;
     font-weight: bold;
     color: #4a3b2a; 
-    background-color: #fff;
+    background-color: #ffffffac;
     padding: 0.1rem;
     border-radius: 0.2rem;
     z-index: 15;
@@ -114,17 +114,15 @@ body {
 
 /* COORDENADAS DE LOS PUNTOS (AJUSTAR MANUALMENTE) */
 .point-1 { top: 44%; left: 51%; }
-.point-7 { top: 18%; left: 55%; }
-.point-8 { top: 12%; left: 48%; }
 
-/* Puntos Centrales */
-.point-2 { top: 44%; left: 42%; }
-.point-3 { top: 45.5%; left: 44%; }
+.point-2 { top: 44%; left: 55%; }
+.point-3 { top: 47.5%; left: 48.5%; }
 .point-4 { top: 43%; left: 40%; }
 .point-5 { top: 40%; left: 40%; }
 .point-6 { top: 40%; left: 35%; }
 
-/* Puntos 9-18 (Noroeste y Oeste) */
+.point-7 { top: 18%; left: 55%; }
+.point-8 { top: 12%; left: 48%; }
 .point-9 { top: 30%; left: 45%; }
 .point-10 { top: 25%; left: 30%; }
 .point-11 { top: 38%; left: 30%; }
@@ -136,7 +134,6 @@ body {
 .point-17 { top: 60%; left: 50%; }
 .point-18 { top: 68%; left: 48%; }
 
-/* Puntos 19-25 (Sur y Este) */
 .point-19 { top: 54%; left: 35%; }
 .point-20 { top: 58%; left: 55%; }
 .point-21 { top: 60%; left: 60%; }
@@ -242,8 +239,7 @@ body {
 
 .legend-container {
     width: 95vw;
-    max-width: 50rem;
-    margin: 3rem auto;
+    margin: 2vw;
     padding: 3vw;
     background-color: #f8f0d8;
     border: 0.2rem solid #4a3b2a;
