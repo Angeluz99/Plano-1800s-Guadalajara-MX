@@ -149,18 +149,26 @@ body {
 .point-24 { top: 57%; left: 55%; }
 .point-25 { top: 37%; left: 55%; }
 
-/* Puntos 26-37 (Infraestructura) */
-.point-26 { top: 42%; left: 45%; }
-.point-27 { top: 50%; left: 55%; }
-.point-28 { top: 52%; left: 40%; }
+
+.point-26 { top: 35%; left: 46%; }
+
+.point-27 { top: 37%; left: 35%; }
+
+.point-28 { top: 30%; left: 43.5%; }
+
 .point-29 { top: 44%; left: 45%; }
+
 .point-30 { top: 56%; left: 42%; }
+
 .point-31 { top: 52%; left: 48%; }
+
 .point-32 { top: 38%; left: 55%; }
+
 .point-33 { top: 30%; left: 65%; }
 .point-34 { top: 55%; left: 50%; }
 .point-35 { top: 50%; left: 50%; }
 .point-36 { top: 50%; left: 50%; }
+
 .point-37 { top: 70%; left: 70%; }
 
 /* --- CONECTOR LINEAL (Usando vw) --- */
