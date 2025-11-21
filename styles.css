@@ -9,8 +9,9 @@ body {
     background-color: #f4e4bc;
     font-family: 'Georgia', serif;
     display: flex;
+    flex-direction: column; /* Cambiado para apilar mapa y leyenda */
     justify-content: center;
-    align-items: flex-start; /* Alineación arriba para que el tooltip se vea */
+    align-items: center; 
     min-height: 100vh;
 }
 
@@ -42,6 +43,14 @@ body {
     z-index: 10;
     animation: pulse 2s infinite;
     -webkit-tap-highlight-color: transparent; 
+    transition: background-color 0.3s ease;
+}
+
+/* El indicador de punto activo (Aqua) */
+.hotspot:hover,
+.hotspot:active,
+.hotspot:focus {
+    background-color: aqua;
 }
 
 /* COORDENADAS DE LOS PUNTOS */
@@ -53,8 +62,8 @@ body {
 .hotspot-connector {
     position: absolute;
     width: 0.8vw; /* Línea delgada */
-    height: 1000px; /* Se mantiene en px por la altura absoluta */
-    background: rgba(180, 50, 50, 0.7);
+    height: 1000px; 
+    background: aqua;
     top: -990px; 
     left: 50%;
     transform: translateX(-50%);
@@ -62,35 +71,33 @@ body {
     display: none;
 }
 
-/* Mostrar la línea al tocar el punto (se aplica globalmente por ahora) */
-.hotspot:active .hotspot,
-.hotspot:focus .hotspot {
+/* Corrección: Muestra el CONECTOR, no el hotspot, al tocar */
+.hotspot:active .hotspot-connector,
+.hotspot:focus .hotspot-connector {
     display: block; 
 }
 
-.hotspot:hover {
-background-color: aqua;}
-/* --- TOOLTIP (VERSIÓN MÓVIL/FIJA GLOBAL) --- */
+/* --- TOOLTIP (VERSION MÓVIL/FIJA GLOBAL) --- */
 .tooltip {
     visibility: hidden;
     opacity: 0;
     
-    /* Panel Superior Fijo (Mobile Style) */
+    /* Panel Superior Fijo */
     position: fixed; 
-    top: 0; 
+    top: 22vw; 
     left: 0;
     width: 100vw;
-    padding: 3vw; /* Usando vw */
+    padding: 3vw; 
     box-sizing: border-box;
 
     /* Alineación Horizontal: Imagen y Texto */
     display: flex;
     align-items: flex-start;
-    gap: 3vw; /* Espacio entre la imagen y el texto */
+    gap: 3vw; 
     
     background-color: #fff8e1;
-    border-bottom: 0.2rem solid #8d6e63; /* Borde inferior */
-    border-radius: 0 0 1rem 1rem; /* Usando rem */
+    border-bottom: 0.2rem solid #8d6e63; 
+    border-radius: 0 0 1rem 1rem; 
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
     transition: all 0.3s ease;
     z-index: 1000;
@@ -108,30 +115,77 @@ background-color: aqua;}
 
 /* --- ESTILOS INTERNOS DE TEXTO E IMAGEN --- */
 .tooltip img { 
-    width: 30vw; /* Tamaño de imagen en la barra superior */
-    max-width: 8rem; /* Límite para pantallas muy grandes */
+    width: 30vw; 
+    max-width: 8rem; 
     height: auto; 
-    border-radius: 0.4rem; /* Usando rem */
-    flex-shrink: 0; /* Evita que la imagen se comprima */
+    border-radius: 0.4rem; 
+    flex-shrink: 0; 
 }
 
 .tooltip .texts {
-    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+    flex-grow: 1; 
     overflow: hidden;
 }
 
 .tooltip h3 { 
-    font-size: 1.1rem; /* Usando rem */
+    font-size: 1.1rem; 
     margin: 0 0 0.2rem 0; 
     color: #5d4037; 
 }
 
 .tooltip p { 
-    font-size: 0.8rem; /* Usando rem */
+    font-size: 0.8rem; 
     margin: 0; 
     line-height: 1.4; 
     color: #333; 
 }
+
+/* --- LEYENDA (Pergamino) NUEVO --- */
+.legend-container {
+    width: 95vw;
+    max-width: 50rem;
+    margin: 3rem auto; /* Centrar y separar del mapa */
+    padding: 3vw;
+    background-color: #f8f0d8; /* Color pergamino más claro */
+    border: 0.2rem solid #4a3b2a;
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    margin-bottom: 5rem; /* Espacio extra al final */
+}
+
+.legend-container h2 {
+    font-size: 1.5rem;
+    color: #5d4037;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.legend-list {
+    font-size: 0.9rem;
+    color: #333;
+    padding-left: 1.5rem; 
+    
+    /* Configuración para múltiples columnas en pantallas más anchas */
+    list-style-position: inside;
+    column-count: 1; /* Por defecto 1 columna */
+    column-gap: 2rem;
+}
+
+.legend-list li {
+    margin-bottom: 0.5rem;
+    break-inside: avoid; /* Evita que los elementos se corten entre columnas */
+}
+
+/* Regla para 2 columnas en pantallas de más de 400px (aproximadamente) */
+@media (min-width: 400px) {
+    .legend-list {
+        column-count: 2;
+    }
+}
+
 
 /* Animación (Usando rem) */
 @keyframes pulse {
