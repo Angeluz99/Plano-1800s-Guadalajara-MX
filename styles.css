@@ -1,0 +1,141 @@
+/* Establecer tamaño base para rem */
+:root {
+    font-size: 100%; 
+}
+
+/* --- ESTILOS BASE --- */
+body {
+    margin: 0;
+    background-color: #f4e4bc;
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alineación arriba para que el tooltip se vea */
+    min-height: 100vh;
+}
+
+.map-container {
+    position: relative;
+    width: 95vw; /* Usando vw */
+    max-width: 50rem; /* Límite para escritorio */
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.5);
+    border: 0.2rem solid #4a3b2a;
+    overflow: hidden; 
+    margin-top: 15rem; /* Separación de la barra superior fija del tooltip */
+}
+
+.map-image {
+    width: 100%;
+    display: block;
+    filter: sepia(30%);
+}
+
+/* --- HOTSPOTS (Usando vw) --- */
+.hotspot {
+    position: absolute;
+    width: 3.5vw;
+    height: 3.5vw;
+    background-color: rgba(180, 50, 50, 0.8);
+    border: 0.2rem solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    animation: pulse 2s infinite;
+    -webkit-tap-highlight-color: transparent; 
+}
+
+/* COORDENADAS DE LOS PUNTOS */
+.point-1 { top: 45%; left: 41%; }
+.point-7 { top: 18%; left: 55%; }
+.point-8 { top: 12%; left: 48%; }
+
+/* --- CONECTOR LINEAL (Usando vw) --- */
+.hotspot-connector {
+    position: absolute;
+    width: 0.8vw; /* Línea delgada */
+    height: 1000px; /* Se mantiene en px por la altura absoluta */
+    background: rgba(180, 50, 50, 0.7);
+    top: -990px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: none;
+}
+
+/* Mostrar la línea al tocar el punto (se aplica globalmente por ahora) */
+.hotspot:active .hotspot,
+.hotspot:focus .hotspot {
+    display: block; 
+}
+
+.hotspot:hover {
+background-color: aqua;}
+/* --- TOOLTIP (VERSIÓN MÓVIL/FIJA GLOBAL) --- */
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    
+    /* Panel Superior Fijo (Mobile Style) */
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100vw;
+    padding: 3vw; /* Usando vw */
+    box-sizing: border-box;
+
+    /* Alineación Horizontal: Imagen y Texto */
+    display: flex;
+    align-items: flex-start;
+    gap: 3vw; /* Espacio entre la imagen y el texto */
+    
+    background-color: #fff8e1;
+    border-bottom: 0.2rem solid #8d6e63; /* Borde inferior */
+    border-radius: 0 0 1rem 1rem; /* Usando rem */
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none; 
+}
+
+/* Mostrar Tooltip */
+.hotspot:hover .tooltip, 
+.hotspot:active .tooltip, 
+.hotspot:focus .tooltip {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- ESTILOS INTERNOS DE TEXTO E IMAGEN --- */
+.tooltip img { 
+    width: 30vw; /* Tamaño de imagen en la barra superior */
+    max-width: 8rem; /* Límite para pantallas muy grandes */
+    height: auto; 
+    border-radius: 0.4rem; /* Usando rem */
+    flex-shrink: 0; /* Evita que la imagen se comprima */
+}
+
+.tooltip .texts {
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+    overflow: hidden;
+}
+
+.tooltip h3 { 
+    font-size: 1.1rem; /* Usando rem */
+    margin: 0 0 0.2rem 0; 
+    color: #5d4037; 
+}
+
+.tooltip p { 
+    font-size: 0.8rem; /* Usando rem */
+    margin: 0; 
+    line-height: 1.4; 
+    color: #333; 
+}
+
+/* Animación (Usando rem) */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0.7); }
+    70% { box-shadow: 0 0 0 1.5rem rgba(180, 50, 50, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0); }
+}
