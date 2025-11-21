@@ -9,7 +9,7 @@ body {
     background-color: #f4e4bc;
     font-family: 'Georgia', serif;
     display: flex;
-    flex-direction: column; /* Cambiado para apilar mapa y leyenda */
+    flex-direction: column;
     justify-content: center;
     align-items: center; 
     min-height: 100vh;
@@ -17,12 +17,12 @@ body {
 
 .map-container {
     position: relative;
-    width: 95vw; /* Usando vw */
-    max-width: 50rem; /* Límite para escritorio */
+    width: 95vw;
+    max-width: 50rem;
     box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.5);
     border: 0.2rem solid #4a3b2a;
     overflow: hidden; 
-    margin-top: 15rem; /* Separación de la barra superior fija del tooltip */
+    margin-top: 15rem;
 }
 
 .map-image {
@@ -34,10 +34,10 @@ body {
 /* --- HOTSPOTS (Usando vw) --- */
 .hotspot {
     position: absolute;
-    width: 3.5vw;
-    height: 3.5vw;
+    width: 2.5vw;
+    height: 2.5vw;
     background-color: rgba(180, 50, 50, 0.8);
-    border: 0.2rem solid white;
+    border: 0.1vw solid white;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
@@ -46,22 +46,123 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* El indicador de punto activo (Aqua) */
 .hotspot:hover,
 .hotspot:active,
 .hotspot:focus {
-    background-color: aqua;
+    background-color: rgba(0, 255, 255, 0.337);
 }
 
-/* COORDENADAS DE LOS PUNTOS */
-.point-1 { top: 45%; left: 41%; }
+
+/* ----------------------------------------------------------------- */
+/* --- TESTING: VISIBLE HOTSPOT NUMBERS (PARA AJUSTE DE COORDENADAS) --- */
+/* ----------------------------------------------------------------- */
+.hotspot::after {
+    /* Estilo base para el número */
+    position: absolute;
+    top: -.4rem; /* Posiciona el número sobre el círculo */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.3rem;
+    font-weight: bold;
+    color: #4a3b2a; 
+    background-color: #fff;
+    padding: 0.1rem;
+    border-radius: 0.2rem;
+    z-index: 15;
+    pointer-events: none;
+    line-height: 1.2;
+}
+
+/* Contenido específico para cada punto (1 al 37) */
+.point-1::after { content: '1'; } 
+.point-2::after { content: '2'; }
+.point-3::after { content: '3'; }
+.point-4::after { content: '4'; }
+.point-5::after { content: '5'; }
+.point-6::after { content: '6'; }
+.point-7::after { content: '7'; }
+.point-8::after { content: '8'; }
+.point-9::after { content: '9'; }
+.point-10::after { content: '10'; }
+.point-11::after { content: '11'; }
+.point-12::after { content: '12'; }
+.point-13::after { content: '13'; }
+.point-14::after { content: '14'; }
+.point-15::after { content: '15'; }
+.point-16::after { content: '16'; }
+.point-17::after { content: '17'; }
+.point-18::after { content: '18'; }
+.point-19::after { content: '19'; }
+.point-20::after { content: '20'; }
+.point-21::after { content: '21'; }
+.point-22::after { content: '22'; }
+.point-23::after { content: '23'; }
+.point-24::after { content: '24'; }
+.point-25::after { content: '25'; }
+.point-26::after { content: '26'; }
+.point-27::after { content: '27'; }
+.point-28::after { content: '28'; }
+.point-29::after { content: '29'; }
+.point-30::after { content: '30'; }
+.point-31::after { content: '31'; }
+.point-32::after { content: '32'; }
+.point-33::after { content: '33'; }
+.point-34::after { content: '34'; }
+.point-35::after { content: '35'; }
+.point-36::after { content: '36'; }
+.point-37::after { content: '37'; }
+
+/* COORDENADAS DE LOS PUNTOS (AJUSTAR MANUALMENTE) */
+.point-1 { top: 44%; left: 51%; }
 .point-7 { top: 18%; left: 55%; }
 .point-8 { top: 12%; left: 48%; }
+
+/* Puntos Centrales */
+.point-2 { top: 44%; left: 42%; }
+.point-3 { top: 45.5%; left: 44%; }
+.point-4 { top: 43%; left: 40%; }
+.point-5 { top: 40%; left: 40%; }
+.point-6 { top: 40%; left: 35%; }
+
+/* Puntos 9-18 (Noroeste y Oeste) */
+.point-9 { top: 30%; left: 45%; }
+.point-10 { top: 25%; left: 30%; }
+.point-11 { top: 38%; left: 30%; }
+.point-12 { top: 48%; left: 32%; }
+.point-13 { top: 50%; left: 37%; }
+.point-14 { top: 40%; left: 47%; }
+.point-15 { top: 46%; left: 46%; }
+.point-16 { top: 55%; left: 45%; }
+.point-17 { top: 60%; left: 50%; }
+.point-18 { top: 68%; left: 48%; }
+
+/* Puntos 19-25 (Sur y Este) */
+.point-19 { top: 54%; left: 35%; }
+.point-20 { top: 58%; left: 55%; }
+.point-21 { top: 60%; left: 60%; }
+.point-22 { top: 50%; left: 50%; }
+.point-23 { top: 48%; left: 38%; }
+.point-24 { top: 42%; left: 38%; }
+.point-25 { top: 48%; left: 35%; }
+
+/* Puntos 26-37 (Infraestructura) */
+.point-26 { top: 42%; left: 45%; }
+.point-27 { top: 50%; left: 55%; }
+.point-28 { top: 52%; left: 40%; }
+.point-29 { top: 44%; left: 45%; }
+.point-30 { top: 56%; left: 42%; }
+.point-31 { top: 52%; left: 48%; }
+.point-32 { top: 38%; left: 55%; }
+.point-33 { top: 30%; left: 65%; }
+.point-34 { top: 55%; left: 50%; }
+.point-35 { top: 50%; left: 50%; }
+.point-36 { top: 50%; left: 50%; }
+.point-37 { top: 70%; left: 70%; }
 
 /* --- CONECTOR LINEAL (Usando vw) --- */
 .hotspot-connector {
     position: absolute;
-    width: 0.8vw; /* Línea delgada */
+    width: 0.8vw;
     height: 1000px; 
     background: aqua;
     top: -990px; 
@@ -77,20 +178,20 @@ body {
     display: block; 
 }
 
-/* --- TOOLTIP (VERSION MÓVIL/FIJA GLOBAL) --- */
+
+/* --- TOOLTIP Y LEYENDA (Estilos restantes) --- */
+
 .tooltip {
     visibility: hidden;
     opacity: 0;
     
-    /* Panel Superior Fijo */
     position: fixed; 
-    top: 22vw; 
+    top: 33vw; 
     left: 0;
     width: 100vw;
     padding: 3vw; 
     box-sizing: border-box;
 
-    /* Alineación Horizontal: Imagen y Texto */
     display: flex;
     align-items: flex-start;
     gap: 3vw; 
@@ -113,7 +214,6 @@ body {
     pointer-events: auto;
 }
 
-/* --- ESTILOS INTERNOS DE TEXTO E IMAGEN --- */
 .tooltip img { 
     width: 30vw; 
     max-width: 8rem; 
@@ -140,17 +240,16 @@ body {
     color: #333; 
 }
 
-/* --- LEYENDA (Pergamino) NUEVO --- */
 .legend-container {
     width: 95vw;
     max-width: 50rem;
-    margin: 3rem auto; /* Centrar y separar del mapa */
+    margin: 3rem auto;
     padding: 3vw;
-    background-color: #f8f0d8; /* Color pergamino más claro */
+    background-color: #f8f0d8;
     border: 0.2rem solid #4a3b2a;
     box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.1);
     box-sizing: border-box;
-    margin-bottom: 5rem; /* Espacio extra al final */
+    margin-bottom: 5rem;
 }
 
 .legend-container h2 {
@@ -168,18 +267,16 @@ body {
     color: #333;
     padding-left: 1.5rem; 
     
-    /* Configuración para múltiples columnas en pantallas más anchas */
     list-style-position: inside;
-    column-count: 1; /* Por defecto 1 columna */
+    column-count: 1;
     column-gap: 2rem;
 }
 
 .legend-list li {
     margin-bottom: 0.5rem;
-    break-inside: avoid; /* Evita que los elementos se corten entre columnas */
+    break-inside: avoid;
 }
 
-/* Regla para 2 columnas en pantallas de más de 400px (aproximadamente) */
 @media (min-width: 400px) {
     .legend-list {
         column-count: 2;
@@ -190,6 +287,6 @@ body {
 /* Animación (Usando rem) */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0.7); }
-    70% { box-shadow: 0 0 0 1.5rem rgba(180, 50, 50, 0); }
+    70% { box-shadow: 0 0 0 1vw rgba(180, 50, 50, 0); }
     100% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0); }
 }
