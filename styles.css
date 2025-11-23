@@ -107,6 +107,8 @@ body {
 .point-31::after { content: '31'; }
 .point-32::after { content: '32'; }
 .point-33::after { content: '33'; }
+.point-33a::after { content: '33a'; }
+.point-33b::after { content: '33b'; }
 .point-34::after { content: '34'; }
 .point-35::after { content: '35'; }
 .point-36::after { content: '36'; }
@@ -156,27 +158,30 @@ body {
 
 .point-28 { top: 30%; left: 43.5%; }
 
-.point-29 { top: 44%; left: 45%; }
+.point-29 { top: 48%; left: 51.5%; }
 
-.point-30 { top: 56%; left: 42%; }
+.point-30 { top: 51.5%; left: 54%; }
 
-.point-31 { top: 52%; left: 48%; }
+.point-31 { top: 43.5%; left: 57%; }
 
-.point-32 { top: 38%; left: 55%; }
+.point-32 { top: 69%; left: 62%; }
 
-.point-33 { top: 30%; left: 65%; }
-.point-34 { top: 55%; left: 50%; }
-.point-35 { top: 50%; left: 50%; }
-.point-36 { top: 50%; left: 50%; }
+.point-33a { top: 10%; left: 8%; }
+.point-33b { top: 67%; left: 74%; } 
+.point-33 { top: 6%; left: 61%; }
 
-.point-37 { top: 70%; left: 70%; }
+.point-34 { top: 32%; left: 17%; }
+.point-35 { top: 8%; left: 56%; }
+.point-36 { top: 61%; left: 37%; }
+
+.point-37 { top: 33%; left: 24%; }
 
 /* --- CONECTOR LINEAL (Usando vw) --- */
 .hotspot-connector {
     position: absolute;
     width: 0.8vw;
     height: 1000px; 
-    background: aqua;
+    background: rgba(0, 255, 255, 0.283);
     top: -990px; 
     left: 50%;
     transform: translateX(-50%);
@@ -209,7 +214,7 @@ body {
     gap: 3vw; 
     
     background-color: #fff8e1;
-    border-bottom: 0.2rem solid #8d6e63; 
+    border-bottom: 2vw solid aquamarine; 
     border-radius: 0 0 1rem 1rem; 
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
     transition: all 0.3s ease;
