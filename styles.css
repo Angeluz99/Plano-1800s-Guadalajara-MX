@@ -15,6 +15,35 @@ body {
     min-height: 100vh;
 }
 
+.toggleButton {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4a3b2a;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.3);
+    z-index: 1001; 
+}
+
+.mapaoriginal{
+    position: absolute;
+    top: 5%;
+    width: 95vw;
+
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.5);
+    border: 0.2rem solid #4a3b2a;
+    overflow: hidden; 
+    margin-top: 15rem;
+
+}
+.mapaoriginal img{
+    width: 100%;
+    display: block;
+}
+
 .map-container {
     position: relative;
     width: 95vw;
@@ -24,6 +53,7 @@ body {
     overflow: hidden; 
     margin-top: 15rem;
 }
+
 
 .map-image {
     width: 100%;
@@ -40,16 +70,22 @@ body {
     border: 0.1vw solid white;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
     animation: pulse 2s infinite;
     -webkit-tap-highlight-color: transparent; 
-    transition: background-color 0.3s ease;
+    /* Agregamos la transición del box-shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.hotspot:hover,
-.hotspot:active,
-.hotspot:focus {
-    background-color: rgba(0, 255, 255, 0.337);
+
+/* ----------------------------------------------------------------- */
+/* --- CLASE UNIFICADA PARA RESALTAR/ACTIVAR (REEMPLAZA active-legend-hotspot) --- */
+/* ----------------------------------------------------------------- */
+.hotspot.active {
+    /* Usar el color aqua translúcido para el estado activo */
+    background-color: rgba(0, 255, 255, 0.337) !important;
+    animation: none; /* Detener el pulso para el punto seleccionado */
+    /* Resaltar visualmente más el punto */
+    box-shadow: 0 0 0 0.5vw rgba(0, 255, 255, 0.7);
 }
 
 
@@ -106,9 +142,9 @@ body {
 .point-30::after { content: '30'; }
 .point-31::after { content: '31'; }
 .point-32::after { content: '32'; }
-.point-33::after { content: '33'; }
 .point-33a::after { content: '33a'; }
 .point-33b::after { content: '33b'; }
+.point-33::after { content: '33'; }
 .point-34::after { content: '34'; }
 .point-35::after { content: '35'; }
 .point-36::after { content: '36'; }
@@ -174,7 +210,7 @@ body {
 .point-35 { top: 8%; left: 56%; }
 .point-36 { top: 61%; left: 37%; }
 
-.point-37 { top: 33%; left: 24%; }
+.point-37 { top: 35%; left: 24%; }
 
 /* --- CONECTOR LINEAL (Usando vw) --- */
 .hotspot-connector {
@@ -189,9 +225,8 @@ body {
     display: none;
 }
 
-/* Corrección: Muestra el CONECTOR, no el hotspot, al tocar */
-.hotspot:active .hotspot-connector,
-.hotspot:focus .hotspot-connector {
+/* Corrección: Muestra el CONECTOR solo cuando el hotspot está .active */
+.hotspot.active .hotspot-connector {
     display: block; 
 }
 
@@ -203,7 +238,7 @@ body {
     opacity: 0;
     
     position: fixed; 
-    top: 33vw; 
+    top: 5vw; 
     left: 0;
     width: 100vw;
     padding: 3vw; 
@@ -222,10 +257,8 @@ body {
     pointer-events: none; 
 }
 
-/* Mostrar Tooltip */
-.hotspot:hover .tooltip, 
-.hotspot:active .tooltip, 
-.hotspot:focus .tooltip {
+/* Mostrar Tooltip: Solo si el hotspot tiene la clase .active */
+.hotspot.active .tooltip {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -291,6 +324,7 @@ body {
 .legend-list li {
     margin-bottom: 0.5rem;
     break-inside: avoid;
+    cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
 }
 
 @media (min-width: 400px) {
