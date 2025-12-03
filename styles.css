@@ -1,373 +1,638 @@
 /* Establecer tamaño base para rem */
 :root {
-    font-size: 100%; 
+  font-size: 100%;
 }
 
 /* --- ESTILOS BASE --- */
 body {
-    margin: 0;
-    background-color: #f4e4bc;
-    font-family: 'Georgia', serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    min-height: 100vh;
+  margin: 0;
+  background-color: #f4e4bc;
+  font-family: "Georgia", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .toggleButton {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #4a3b2a;
-    color: white;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.3);
-    z-index: 1001; 
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4a3b2a;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
+  z-index: 1001;
 }
 
-.mapaoriginal{
-    position: absolute;
-    top: 5%;
-    width: 95vw;
+.mapaoriginal {
+  position: absolute;
+  top: 5%;
+  width: 95vw;
 
-    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.5);
-    border: 0.2rem solid #4a3b2a;
-    overflow: hidden; 
-    margin-top: 15rem;
-    transition: opacity 0.3s ease, pointer-events 0.3s ease;
-
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.5);
+  border: 0.2rem solid #4a3b2a;
+  overflow: hidden;
+  margin-top: 15rem;
+  transition: opacity 0.3s ease, pointer-events 0.3s ease;
 }
-.mapaoriginal img{
-    width: 100%;
-    display: block;
+.mapaoriginal img {
+  width: 100%;
+  display: block;
 }
 
 .map-container {
-    position: relative;
-    width: 95vw;
-    max-width: 50rem;
-    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.5);
-    border: 0.2rem solid #4a3b2a;
-    overflow: hidden; 
-    margin-top: 15rem;
-    transition: opacity 0.3s ease, pointer-events 0.3s ease;
+  position: relative;
+  width: 95vw;
+  max-width: 50rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.5);
+  border: 0.2rem solid #4a3b2a;
+  overflow: hidden;
+  margin-top: 15rem;
+  transition: opacity 0.3s ease, pointer-events 0.3s ease;
 }
 
 /* Clases de Alternancia */
 .mapaoriginal.visible {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .map-container.hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-
 .map-image {
-    width: 100%;
-    display: block;
-    filter: sepia(30%);
+  width: 100%;
+  display: block;
+  filter: sepia(30%);
 }
 
 /* --- HOTSPOTS (Usando vw) --- */
 .hotspot {
-    position: absolute;
-    width: 2vw;
-    height: 2vw;
-    background-color: rgba(180, 50, 50, 0.8);
-    border: 0.1vw solid white;
-    border-radius: 50%;
-    cursor: pointer;
-    animation: pulse 2s infinite;
-    -webkit-tap-highlight-color: transparent; 
-    /* Agregamos la transición del box-shadow */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(180, 50, 50, 0.575);
+  border: 0.1vw solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  -webkit-tap-highlight-color: transparent;
+  /* Agregamos la transición del box-shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 /* ----------------------------------------------------------------- */
 /* --- CLASE UNIFICADA PARA RESALTAR/ACTIVAR (REEMPLAZA active-legend-hotspot) --- */
 /* ----------------------------------------------------------------- */
 .hotspot.active {
-    /* Usar el color aqua translúcido para el estado activo */
-    background-color: rgba(0, 255, 255, 0.337) !important;
-    animation: none; /* Detener el pulso para el punto seleccionado */
-    /* Resaltar visualmente más el punto */
-    box-shadow: 0 0 0 0.5vw rgba(0, 255, 255, 0.7);
+  /* Usar el color aqua translúcido para el estado activo */
+  background-color: rgba(0, 255, 255, 0.078) !important;
+  animation: none; /* Detener el pulso para el punto seleccionado */
+  border: 0.15vw solid rgb(0, 255, 255);
 }
-
 
 /* ----------------------------------------------------------------- */
 /* --- TESTING: VISIBLE HOTSPOT NUMBERS (PARA AJUSTE DE COORDENADAS) --- */
 /* ----------------------------------------------------------------- */
 .hotspot::after {
-    /* Estilo base para el número */
-    position: absolute;
-    top: -.4rem; /* Posiciona el número sobre el círculo */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.3rem;
-    font-weight: bold;
-    color: #4a3b2a; 
-    background-color: #ffffffac;
-    padding: 0.1rem;
-    border-radius: 0.2rem;
-    z-index: 15;
-    pointer-events: none;
-    line-height: 1.2;
+  /* Estilo base para el número */
+  position: absolute;
+  top: -0.4rem; /* Posiciona el número sobre el círculo */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.25rem;
+  font-weight: bold;
+  color: #4a3b2a;
+  background-color: #ffffffac;
+  padding-inline: 0.2vw;
+  border-radius: 25%;
+  z-index: 15;
+  pointer-events: none;
 }
 
 /* Contenido específico para cada punto (1 al 37) */
-.point-1::after { content: '1'; } 
-.point-2::after { content: '2'; }
-.point-3::after { content: '3'; }
-.point-4::after { content: '4'; }
-.point-5::after { content: '5'; }
-.point-6::after { content: '6'; }
-.point-7::after { content: '7'; }
-.point-8::after { content: '8'; }
-.point-9::after { content: '9'; }
-.point-10::after { content: '10'; }
-.point-11::after { content: '11'; }
-.point-12::after { content: '12'; }
-.point-13::after { content: '13'; }
-.point-14::after { content: '14'; }
-.point-15::after { content: '15'; }
-.point-16::after { content: '16'; }
-.point-17::after { content: '17'; }
-.point-18::after { content: '18'; }
-.point-19::after { content: '19'; }
-.point-20::after { content: '20'; }
-.point-21::after { content: '21'; }
-.point-22::after { content: '22'; }
-.point-23::after { content: '23'; }
-.point-24::after { content: '24'; }
-.point-25::after { content: '25'; }
-.point-26::after { content: '26'; }
-.point-27::after { content: '27'; }
-.point-28::after { content: '28'; }
-.point-29::after { content: '29'; }
-.point-30::after { content: '30'; }
-.point-31::after { content: '31'; }
-.point-32::after { content: '32'; }
-.point-33a::after { content: '33'; }
-.point-33b::after { content: '33'; }
-.point-33::after { content: '33'; }
-.point-34::after { content: '34'; }
-.point-35::after { content: '35'; }
-.point-36::after { content: '36'; }
-.point-37::after { content: '37'; }
+.point-1::after {
+  content: "1";
+}
+.point-2::after {
+  content: "2";
+}
+.point-3::after {
+  content: "3";
+}
+.point-4::after {
+  content: "4";
+}
+.point-5::after {
+  content: "5";
+}
+.point-6::after {
+  content: "6";
+}
+.point-7::after {
+  content: "7";
+}
+.point-8::after {
+  content: "8";
+}
+.point-9::after {
+  content: "9";
+}
+.point-10::after {
+  content: "10";
+}
+.point-11::after {
+  content: "11";
+}
+.point-12::after {
+  content: "12";
+}
+.point-13::after {
+  content: "13";
+}
+.point-14::after {
+  content: "14";
+}
+.point-15::after {
+  content: "15";
+}
+.point-16::after {
+  content: "16";
+}
+.point-17::after {
+  content: "17";
+}
+.point-18::after {
+  content: "18";
+}
+.point-19::after {
+  content: "19";
+}
+.point-20::after {
+  content: "20";
+}
+.point-21::after {
+  content: "21";
+}
+.point-22::after {
+  content: "22";
+}
+.point-23::after {
+  content: "23";
+}
+.point-24::after {
+  content: "24";
+}
+.point-25::after {
+  content: "25";
+}
+.point-26::after {
+  content: "26";
+}
+.point-27::after {
+  content: "27";
+}
+.point-28::after {
+  content: "28";
+}
+.point-29::after {
+  content: "29";
+}
+.point-30::after {
+  content: "30";
+}
+.point-31::after {
+  content: "31";
+}
+.point-32::after {
+  content: "32";
+}
+.point-33a::after {
+  content: "33";
+}
+.point-33b::after {
+  content: "33";
+}
+.point-33::after {
+  content: "33";
+}
+.point-34::after {
+  content: "34";
+}
+.point-35::after {
+  content: "35";
+}
+.point-36::after {
+  content: "36";
+}
+.point-37::after {
+  content: "37";
+}
 
 /* COORDENADAS DE LOS PUNTOS (AJUSTAR MANUALMENTE) */
-.point-1 { top: 44%; left: 51%; }
+.point-1 {
+  top: 43%;
+  left: 52%;
+}
 
-.point-2 { top: 44%; left: 55%; }
-.point-3 { top: 47.5%; left: 48.5%; }
-.point-4 { top: 40.5%; left: 54%; }
-.point-5 { top: 48%; left: 54%; }
-.point-6 { top: 44%; left: 65%; }
+.point-2 {
+  top: 44%;
+  left: 55%;
+}
+.point-3 {
+  top: 47.5%;
+  left: 48.5%;
+}
+.point-4 {
+  top: 40.5%;
+  left: 54%;
+}
+.point-5 {
+  top: 48%;
+  left: 54%;
+}
+.point-6 {
+  top: 44%;
+  left: 65%;
+}
 
-.point-7 { top: 60%; left: 85%; }
-.point-8 { top: 40%; left: 80%; }
-.point-9 { top: 44%; left: 80%; }
-.point-10 { top: 27%; left: 69%; }
-.point-11 { top: 33%; left: 63%; }
+.point-7 {
+  top: 60%;
+  left: 85%;
+}
+.point-8 {
+  top: 40%;
+  left: 80%;
+}
+.point-9 {
+  top: 44%;
+  left: 80%;
+}
+.point-10 {
+  top: 27%;
+  left: 69%;
+}
+.point-11 {
+  top: 33%;
+  left: 63%;
+}
 
-.point-12 { top: 27%; left: 63%; }
+.point-12 {
+  top: 27%;
+  left: 63%;
+}
 
-.point-13 { top: 24%; left: 58%; }
+.point-13 {
+  top: 24%;
+  left: 58%;
+}
 
-.point-14 { top: 34%; left: 49%; }
+.point-14 {
+  top: 34%;
+  left: 49%;
+}
 
-.point-15 { top: 24%; left: 52%; }
-.point-16 { top: 20%; left: 46%; }
+.point-15 {
+  top: 24%;
+  left: 52%;
+}
+.point-16 {
+  top: 20%;
+  left: 46%;
+}
 
-.point-17 { top: 23%; left: 41%; }
-.point-18 { top: 37%; left: 12%; }
+.point-17 {
+  top: 23%;
+  left: 41%;
+}
+.point-18 {
+  top: 37%;
+  left: 12%;
+}
 
-.point-19 { top: 49%; left: 32%; }
-.point-20 { top: 79%; left: 27%; }
+.point-19 {
+  top: 49%;
+  left: 32%;
+}
+.point-20 {
+  top: 79%;
+  left: 27%;
+}
 
-.point-21 { top: 72%; left: 21%; }
-.point-22 { top: 71%; left: 48%; }
+.point-21 {
+  top: 72%;
+  left: 21%;
+}
+.point-22 {
+  top: 71%;
+  left: 48%;
+}
 
-.point-23 { top: 54%; left: 49%; }
-.point-24 { top: 57%; left: 55%; }
-.point-25 { top: 37%; left: 55%; }
+.point-23 {
+  top: 54%;
+  left: 49%;
+}
+.point-24 {
+  top: 57%;
+  left: 55%;
+}
+.point-25 {
+  top: 37%;
+  left: 55%;
+}
 
+.point-26 {
+  top: 35%;
+  left: 46%;
+}
 
-.point-26 { top: 35%; left: 46%; }
+.point-27 {
+  top: 37%;
+  left: 35%;
+}
 
-.point-27 { top: 37%; left: 35%; }
+.point-28 {
+  top: 30%;
+  left: 43.5%;
+}
 
-.point-28 { top: 30%; left: 43.5%; }
+.point-29 {
+  top: 48%;
+  left: 51.5%;
+}
 
-.point-29 { top: 48%; left: 51.5%; }
+.point-30 {
+  top: 51.5%;
+  left: 54%;
+}
 
-.point-30 { top: 51.5%; left: 54%; }
+.point-31 {
+  top: 43.5%;
+  left: 57%;
+}
 
-.point-31 { top: 43.5%; left: 57%; }
+.point-32 {
+  top: 69%;
+  left: 62%;
+}
 
-.point-32 { top: 69%; left: 62%; }
+.point-33a {
+  top: 10%;
+  left: 8%;
+}
+.point-33b {
+  top: 67%;
+  left: 74%;
+}
+.point-33 {
+  top: 6%;
+  left: 61%;
+}
 
-.point-33a { top: 10%; left: 8%; }
-.point-33b { top: 67%; left: 74%; } 
-.point-33 { top: 6%; left: 61%; }
+.point-34 {
+  top: 32%;
+  left: 17%;
+}
+.point-35 {
+  top: 8%;
+  left: 56%;
+}
+.point-36 {
+  top: 61%;
+  left: 37%;
+}
 
-.point-34 { top: 32%; left: 17%; }
-.point-35 { top: 8%; left: 56%; }
-.point-36 { top: 61%; left: 37%; }
-
-.point-37 { top: 35%; left: 24%; }
+.point-37 {
+  top: 35%;
+  left: 24%;
+}
 
 /* --- CONECTOR LINEAL (Usando vw) --- */
 .hotspot-connector {
-    position: absolute;
-    width: 0.8vw;
-    height: 1000px; 
-    background: rgba(0, 255, 255, 0.283);
-    top: -990px; 
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-    display: none;
+  position: absolute;
+  width: 0.8vw;
+  height: 1000px;
+  background: rgba(0, 255, 255, 0.37);
+  top: -990px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: none;
 }
 
 /* Corrección: Muestra el CONECTOR solo cuando el hotspot está .active */
 .hotspot.active .hotspot-connector {
-    display: block; 
+  display: block;
 }
-
 
 /* --- TOOLTIP Y LEYENDA (Estilos restantes) --- */
 
 .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    
-    position: fixed; 
-    top:25vw; 
-    left: 0;
-    width: 100vw;
-    padding: 3vw; 
-    box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
 
-    display: flex;
-    align-items: flex-start;
-    gap: 3vw; 
-    
-    background-color: #fff8e1;
-    border-bottom: 2vw solid aquamarine; 
-    border-radius: 0 0 1rem 1rem; 
-    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    pointer-events: none; 
+  position: fixed;
+  top: 30vw;
+  left: 0;
+  width: 100vw;
+  padding: 3vw;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 3vw;
+
+  background-color: #fff8e1;
+  border-bottom: 2vw solid aquamarine;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  pointer-events: none;
 }
 
 /* Mostrar Tooltip: Solo si el hotspot tiene la clase .active */
 .hotspot.active .tooltip {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .imageDiv {
-flex-shrink: 0; 
-    height: 35vw; /* Altura del contenedor definida (p. ej., 35vw) */
-    width: 30vw;  /* Ancho del contenedor definido (p. ej., 30vw) */
-    max-width: 8rem; 
-    /* Necesitas una altura máxima si tienes un max-width, para mantener la proporción: */
-    max-height: 8rem; /* Asume que quieres una forma cuadrada en el máximo */
-    border-radius: 0.4rem; 
-    overflow: hidden; 
+  flex-shrink: 0;
+  height: 35vw; /* Altura del contenedor definida (p. ej., 35vw) */
+  width: 30vw; /* Ancho del contenedor definido (p. ej., 30vw) */
+  max-width: 8rem;
+  /* Necesitas una altura máxima si tienes un max-width, para mantener la proporción: */
+  max-height: 8rem; /* Asume que quieres una forma cuadrada en el máximo */
+  border-radius: 0.4rem;
+  overflow: hidden;
 }
 
-.imageDiv img { 
-    /* CLAVE: Ocupa el 100% del contenedor padre */
-    width: 100%;
-    height: 100%; 
-    
-    /* CLAVE: Asegura que la imagen llene el contenedor, recortando si es necesario, 
-       pero manteniendo su proporción original. */
-    object-fit: cover; 
+.imageDiv img {
+  /* CLAVE: Ocupa el 100% del contenedor padre */
+  width: 100%;
+  height: 100%;
 
-    /* La imagen hereda el border-radius del div padre gracias al `overflow: hidden;` */
-    /* Puedes eliminar el border-radius de la imagen si ya está en el .imageDiv 
+  /* CLAVE: Asegura que la imagen llene el contenedor, recortando si es necesario, 
+       pero manteniendo su proporción original. */
+  object-fit: cover;
+
+  /* La imagen hereda el border-radius del div padre gracias al `overflow: hidden;` */
+  /* Puedes eliminar el border-radius de la imagen si ya está en el .imageDiv 
        y estás usando overflow: hidden; */
-    border-radius: 0.4rem; 
+  border-radius: 0.4rem;
 }
 
 .tooltip .texts {
-    flex-grow: 1; 
-    overflow: hidden;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
-.tooltip h3 { 
-    font-size: 1.1rem; 
-    margin: 0 0 0.2rem 0; 
-    color: #5d4037; 
+.tooltip h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.2rem 0;
+  color: #5d4037;
 }
 
-.tooltip p { 
-    font-size: 0.8rem; 
-    margin: 0; 
-    line-height: 1.4; 
-    color: #333; 
+.tooltip p {
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.4;
+  color: #333;
 }
 
 .legend-container {
-    width: 95vw;
-    margin: 2vw;
-    padding: 3vw;
-    background-color: #f8f0d8;
-    border: 0.2rem solid #4a3b2a;
-    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.1);
-    box-sizing: border-box;
-    margin-bottom: 5rem;
+  width: 95vw;
+  margin: 2vw;
+  padding: 3vw;
+  background-color: #f8f0d8;
+  border: 0.2rem solid #4a3b2a;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-bottom: 5rem;
 }
 
 .legend-container h2 {
-    font-size: 1.5rem;
-    color: #5d4037;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #5d4037;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
 }
 
 .legend-list {
-    font-size: 0.9rem;
-    color: #333;
-    padding-left: 1.5rem; 
-    
-    list-style-position: inside;
-    column-count: 1;
-    column-gap: 2rem;
+  font-size: 0.9rem;
+  color: #333;
+  padding-left: 1.5rem;
+
+  list-style-position: inside;
+  column-count: 1;
+  column-gap: 2rem;
 }
 
 .legend-list li {
-    margin-bottom: 0.5rem;
-    break-inside: avoid;
-    cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
+  margin-bottom: 0.5rem;
+  break-inside: avoid;
+  cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
 }
-
-@media (min-width: 400px) {
-    .legend-list {
-        column-count: 2;
-    }
-}
-
 
 /* Animación (Usando rem) */
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0.7); }
-    70% { box-shadow: 0 0 0 1vw rgba(180, 50, 50, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(180, 50, 50, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(180, 50, 50, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 1vw rgba(180, 50, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(180, 50, 50, 0);
+  }
+}
+
+@media (min-width: 400px) {
+  .legend-list {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 700px) {
+
+    .toggleButton {
+    font-size: 1.2rem;}
+
+
+    .mapaoriginal{  
+          top: 3.5%;
+
+    }
+  .hotspot::after {
+    font-size: 0.5 rem;
+  }
+
+  .tooltip {
+    top: 14vw;
+  }
+
+  .texts h3 {
+    font-size: 1.5rem;
+  }
+
+  .texts p {
+    font-size: 1.1rem;
+  }
+
+  .legend-list {
+    column-count: 3;
+  }
+
+  .legend-list li {
+    font-size: 1rem;
+  }
+}
+
+
+@media (min-width: 900px) {
+
+    .mapaoriginal{
+        width: 63vw;
+        top: 6%;
+    }
+
+ 
+
+    .tooltip{
+        top: 8vw;
+        width: 50vw;
+        height: 15vw;
+        margin-left: 25%;
+        padding: 2vw;
+    }
+
+    .texts h3 {
+        font-size: 1.2rem;
+    }
+
+    .texts p {
+        font-size: 1rem;
+    }
+
+    .hotspot {
+        width: 1.5vw;
+        height: 1.5vw;
+    }
+
+    .hotspot::after {
+        font-size: 0.7rem;
+    }
+
+
 }
