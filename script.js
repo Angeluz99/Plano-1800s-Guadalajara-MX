@@ -1,129 +1,88 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // -------------------------------------------------------------
-    // 1. SELECCIÓN DE ELEMENTOS (¡FIXED! Usando .querySelector)
-    // -------------------------------------------------------------
     const toggleButton = document.querySelector('.toggleButton');
     const mapOriginal = document.querySelector('.mapaoriginal');
     const mapContainer = document.querySelector('.map-container');
-    
-    const legendListItems = document.querySelectorAll('.legend-list li');
     const allHotspots = document.querySelectorAll('.hotspot');
+    const legendListItems = document.querySelectorAll('.legend-list li');
 
+    if (!toggleButton || !mapOriginal || !mapContainer) return;
 
-    // Comprobación de seguridad para evitar el error 'null'
-    if (!toggleButton || !mapOriginal || !mapContainer) {
-        console.error("Faltan elementos HTML cruciales: '.toggleButton', '.mapaoriginal' o '.map-container'.");
-        return; 
+    // --- FUNCIÓN PARA DESACTIVAR TODO ---
+    function deactivateAllHotspots() {
+        allHotspots.forEach(h => h.classList.remove('active'));
     }
 
-    // -------------------------------------------------------------
-    // 2. LÓGICA DE VISIBILIDAD (Toggle) - Mantiene la corrección del doble-clic
-    // -------------------------------------------------------------
-    toggleButton.addEventListener('click', () => {
-        // Comprobar el estado actual del mapa original a través de su clase.
+    // --- 1. LÓGICA DE VISIBILIDAD (Mapa Original / Locaciones) ---
+    toggleButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic llegue al document
         const isOriginalMapVisible = mapOriginal.classList.contains('visible');
-
         if (!isOriginalMapVisible) {
-            // Estado actual: Mapa Hotspots visible. Acción: Mostrar Mapa Original.
-            
-            // 1. Ocultar mapa con hotspots y mostrar mapa original
-            mapContainer.classList.add('hidden'); // Ocultar hotspots
-            mapOriginal.classList.add('visible'); // Mostrar original
-            
-            // 2. Actualizar texto del botón
+            mapContainer.classList.add('hidden');
+            mapOriginal.classList.add('visible');
             toggleButton.textContent = 'VER LOCACIONES';
+            deactivateAllHotspots(); // Limpia selección al cambiar de mapa
         } else {
-            // Estado actual: Mapa Original visible. Acción: Mostrar Mapa Hotspots.
-            
-            // 1. Ocultar mapa original y mostrar mapa con hotspots
-            mapOriginal.classList.remove('visible'); // Ocultar original
-            mapContainer.classList.remove('hidden'); // Mostrar hotspots
-            
-            // 2. Actualizar texto del botón
+            mapOriginal.classList.remove('visible');
+            mapContainer.classList.remove('hidden');
             toggleButton.textContent = 'VER MAPA ORIGINAL';
         }
     });
 
-
-    // -------------------------------------------------------------
-    // 3. LÓGICA UNIFICADA DE ACTIVACIÓN DE HOTSPOT
-    // -------------------------------------------------------------
-
-    /**
-     * Limpia el estado 'active' de todos los hotspots y aplica el estado 'active'
-     * al hotspot/s especificado por el selector.
-     * @param {string} hotspotSelector El selector CSS del hotspot a activar.
-     */
+    // --- 2. FUNCIÓN DE ACTIVACIÓN ---
     function setActiveHotspot(hotspotSelector) {
-        // 1. Limpiar estado 'active' de TODOS los hotspots
-        allHotspots.forEach(hotspot => {
-            hotspot.classList.remove('active'); 
-        });
-
-        // 2. Encontrar y activar el hotspot/s objetivo
+        deactivateAllHotspots();
         const targetHotspots = document.querySelectorAll(hotspotSelector);
+        targetHotspots.forEach(hotspot => hotspot.classList.add('active'));
 
-        targetHotspots.forEach(hotspot => {
-            hotspot.classList.add('active'); 
-        });
-
-        // 3. Mostrar mapa de hotspots (en caso de que estuviera el original) y hacer scroll
-        mapOriginal.classList.remove('visible'); // Ocultar original
-        mapContainer.classList.remove('hidden'); // Mostrar hotspots
+        mapOriginal.classList.remove('visible');
+        mapContainer.classList.remove('hidden');
         toggleButton.textContent = 'VER MAPA ORIGINAL';
-
     }
 
+    // --- 3. EVENTOS DE CLIC ---
 
-    // A) Funcionalidad de la Leyenda (Click en <li>)
+    // A) Click en la Leyenda
     legendListItems.forEach((item, index) => {
-        // El número de hotspot corresponde al índice + 1
-        let hotspotNumber = index + 1;
-
-        item.addEventListener('click', () => {
-            let targetSelector;
-
-            // Caso especial para el punto 33 (Las Garitas), que tiene 3 hotspots
-            if (hotspotNumber === 33) {
-                targetSelector = '.point-33, .point-33a, .point-33b';
-            } else {
-                targetSelector = `.point-${hotspotNumber}`;
-            }
-
-            setActiveHotspot(targetSelector);
+        let num = index + 1;
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let selector = (num === 33) ? '.point-33, .point-33a, .point-33b' : 
+                           (num === 36) ? '.point-36, .point-36a, .point-36b' : 
+                           `.point-${num}`;
+            setActiveHotspot(selector);
         });
     });
 
-    // B) Funcionalidad del Hotspot (Click directo en el mapa)
+    // B) Click en el Mapa (Hotspots)
     allHotspots.forEach(hotspot => {
         hotspot.addEventListener('click', (event) => {
             event.stopPropagation();
-            
-            const pointClass = Array.from(hotspot.classList).find(cls => cls.startsWith('point-'));
-
-            if (!pointClass) return;
-
-            // Si ya está activo, lo desactivamos (toggle off)
-            if (hotspot.classList.contains('active')) {
-                 // Limpia el estado 'active' de todos los hotspots (desactivar)
-                 allHotspots.forEach(h => h.classList.remove('active')); 
-            } else {
-                // Si no está activo, lo activamos (y desactiva a los demás)
-                
-                // Determinamos el selector base para el caso especial 33
-                const baseNumber = pointClass.replace('point-', '').replace('a', '').replace('b', '');
-                
-                let targetSelector;
-                if (baseNumber === '33') {
-                    // Si se hace clic en cualquier parte de las Garitas, se resaltan TODAS.
-                    targetSelector = '.point-33, .point-33a, .point-33b';
-                } else {
-                    // Para todos los demás, se resalta solo el punto específico
-                    targetSelector = `.${pointClass}`;
-                }
-
-                setActiveHotspot(targetSelector);
+            if (!hotspot.classList.contains('active')) {
+                const pointClass = Array.from(hotspot.classList).find(cls => cls.startsWith('point-'));
+                setActiveHotspot(`.${pointClass}`);
             }
         });
+
+        // C) Evitar que el tooltip se cierre al hacer clic dentro de sus textos/imágenes
+        const tooltip = hotspot.querySelector('.tooltip');
+        if (tooltip) {
+            tooltip.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+            });
+        }
+
+        // D) Lógica del botón de cerrar (X)
+        const closeBtn = hotspot.querySelector('.close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deactivateAllHotspots();
+            });
+        }
+    });
+
+    // E) CLIC FUERA (Cerrar todo al tocar cualquier otra parte de la pantalla)
+    document.addEventListener('click', () => {
+        deactivateAllHotspots();
     });
 });

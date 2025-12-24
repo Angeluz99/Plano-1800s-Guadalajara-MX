@@ -231,6 +231,12 @@ body {
 .point-36::after {
   content: "36";
 }
+.point-36a::after {
+  content: "36";
+}
+.point-36b::after {
+  content: "36";
+}
 .point-37::after {
   content: "37";
 }
@@ -407,6 +413,14 @@ body {
   top: 61%;
   left: 37%;
 }
+.point-36a {
+  top: 65%;
+  left: 60%;
+}
+.point-36b {
+  top: 69%;
+  left: 53%;
+}
 
 .point-37 {
   top: 35%;
@@ -447,7 +461,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 3vw;
-
+  pointer-events: auto; /* Asegura que el contenido sea interactivo */
   background-color: #fff8e1;
   border-bottom: 2vw solid aquamarine;
   border-radius: 0 0 1rem 1rem;
@@ -462,6 +476,24 @@ body {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Botón de cerrar dentro del tooltip */
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5d4037;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1010; /* Por encima del contenido del tooltip */
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #d32f2f; /* Rojo al pasar el mouse */
 }
 
 .imageDiv {
@@ -565,15 +597,13 @@ body {
 }
 
 @media (min-width: 700px) {
+  .toggleButton {
+    font-size: 1.2rem;
+  }
 
-    .toggleButton {
-    font-size: 1.2rem;}
-
-
-    .mapaoriginal{  
-          top: 3.5%;
-
-    }
+  .mapaoriginal {
+    top: 3.5%;
+  }
   .hotspot::after {
     font-size: 0.5 rem;
   }
@@ -599,40 +629,34 @@ body {
   }
 }
 
-
 @media (min-width: 900px) {
+  .mapaoriginal {
+    width: 63vw;
+    top: 6%;
+  }
 
-    .mapaoriginal{
-        width: 63vw;
-        top: 6%;
-    }
+  .tooltip {
+    top: 8vw;
+    width: 50vw;
+    height: 15vw;
+    margin-left: 25%;
+    padding: 2vw;
+  }
 
- 
+  .texts h3 {
+    font-size: 1.2rem;
+  }
 
-    .tooltip{
-        top: 8vw;
-        width: 50vw;
-        height: 15vw;
-        margin-left: 25%;
-        padding: 2vw;
-    }
+  .texts p {
+    font-size: 1rem;
+  }
 
-    .texts h3 {
-        font-size: 1.2rem;
-    }
+  .hotspot {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
 
-    .texts p {
-        font-size: 1rem;
-    }
-
-    .hotspot {
-        width: 1.5vw;
-        height: 1.5vw;
-    }
-
-    .hotspot::after {
-        font-size: 0.7rem;
-    }
-
-
+  .hotspot::after {
+    font-size: 0.7rem;
+  }
 }
