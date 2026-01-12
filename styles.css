@@ -428,7 +428,7 @@ body {
 }
 
 /* --- CONECTOR LINEAL (Usando vw) --- */
-.hotspot-connector {
+/* .hotspot-connector {
   position: absolute;
   width: 0.8vw;
   height: 1000px;
@@ -440,10 +440,10 @@ body {
   display: none;
 }
 
-/* Corrección: Muestra el CONECTOR solo cuando el hotspot está .active */
+
 .hotspot.active .hotspot-connector {
   display: block;
-}
+} */
 
 /* --- TOOLTIP Y LEYENDA (Estilos restantes) --- */
 
