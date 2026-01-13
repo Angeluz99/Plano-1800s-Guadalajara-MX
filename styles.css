@@ -28,6 +28,13 @@ body {
   z-index: 1001;
 }
 
+.logoMapa {
+  position: absolute;
+  top: 5vw;
+  left: 7% ;
+  width: 85vw;
+
+}
 .mapaoriginal {
   position: absolute;
   top: 5%;
