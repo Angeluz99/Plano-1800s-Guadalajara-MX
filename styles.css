@@ -30,9 +30,9 @@ body {
 
 .logoMapa {
   position: absolute;
-  top: 5vw;
-  left: 7% ;
-  width: 85vw;
+  top: 10vw;
+  left: 25% ;
+  width: 50vw;
 
 }
 .mapaoriginal {
@@ -99,9 +99,9 @@ body {
 /* ----------------------------------------------------------------- */
 .hotspot.active {
   /* Usar el color aqua translúcido para el estado activo */
-  background-color: rgba(0, 255, 255, 0.078) !important;
+  background-color: rgba(0, 255, 255, 0.068) !important;
   animation: none; /* Detener el pulso para el punto seleccionado */
-  border: 0.15vw solid rgb(0, 255, 255);
+  border: 0.2vw solid rgba(0, 255, 255, 0.578);
 }
 
 /* ----------------------------------------------------------------- */
@@ -610,8 +610,8 @@ body {
 
   .logoMapa {
   top: 3vw;
-  left: 35% ;
-  width: 28vw;
+  left: 42% ;
+  width: 15vw;
 
 }
 
