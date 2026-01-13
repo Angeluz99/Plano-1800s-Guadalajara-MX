@@ -608,6 +608,13 @@ body {
     font-size: 1.2rem;
   }
 
+  .logoMapa {
+  top: 3vw;
+  left: 35% ;
+  width: 28vw;
+
+}
+
   .mapaoriginal {
     top: 3.5%;
   }
