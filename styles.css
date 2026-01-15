@@ -468,7 +468,6 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 3vw;
-  pointer-events: auto; /* Asegura que el contenido sea interactivo */
   background-color: #fff8e1;
   border-bottom: 2vw solid aquamarine;
   border-radius: 0 0 1rem 1rem;
@@ -506,8 +505,8 @@ body {
 .imageDiv {
   flex-shrink: 0;
   height: 35vw; /* Altura del contenedor definida (p. ej., 35vw) */
-  width: 30vw; /* Ancho del contenedor definido (p. ej., 30vw) */
-  max-width: 8rem;
+  width: 20vw; /* Ancho del contenedor definido (p. ej., 30vw) */
+  max-width: 20vw;
   /* Necesitas una altura máxima si tienes un max-width, para mantener la proporción: */
   max-height: 8rem; /* Asume que quieres una forma cuadrada en el máximo */
   border-radius: 0.4rem;
@@ -626,6 +625,12 @@ body {
     top: 14vw;
   }
 
+  .imageDiv {
+    height: 20vw;
+    width: 12vw;
+
+  }
+
   .texts h3 {
     font-size: 1.5rem;
   }
@@ -656,7 +661,11 @@ body {
     margin-left: 25%;
     padding: 2vw;
   }
+.imageDiv {
+    height: 10vw;
+    width: 7vw;
 
+  }
   .texts h3 {
     font-size: 1.2rem;
   }
