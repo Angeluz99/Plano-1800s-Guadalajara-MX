@@ -672,6 +672,7 @@ body {
     height: 15vw;
     margin-left: 25%;
     padding: 2vw;
+    border-bottom: 1vw solid aquamarine;
   }
 .imageDiv {
     height: 10vw;
