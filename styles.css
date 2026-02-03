@@ -25,7 +25,8 @@ body {
   border-radius: 0.3rem;
   cursor: pointer;
   box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
-  z-index: 1001;
+  font-family:"Georgia", serif;
+   z-index: 1001;
 }
 
 .logoMapa {
@@ -672,12 +673,13 @@ body {
     width: 50vw;
     height: 15vw;
     margin-left: 25%;
-    padding: 2vw;
-    border-bottom: 1vw solid aquamarine;
+    padding: 1vw;
+    border-bottom: .8vw solid aquamarine;
+    border-top: .6vw solid aquamarine;
   }
 .imageDiv {
-    height: 10vw;
-    width: 7vw;
+    max-height: 12vw;
+    max-width: 9vw;
 
   }
   .texts h3 {
