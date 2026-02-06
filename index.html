@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -13,7 +13,9 @@
       <button class="toggleButton">VER MAPA ORIGINAL</button>
     </div>
 
-    <img src="logoplanogdl.png" alt="logo mapa1800" class="logoMapa" />
+    <picture>
+      <img src="logoplanogdl.png" alt="logo mapa1800" class="logoMapa" />
+    </picture>
 
     <div class="mapaoriginal">
       <img src="mapaclean.webp" alt="mapa1800 original" />
@@ -25,19 +27,26 @@
         alt="Mapa Antiguo Guadalajara"
         class="map-image"
       />
+
       <div class="hotspot point-1">
         <div class="hotspot-connector"></div>
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/catedral.webp" alt="Catedral" />
+            <picture>
+              <source
+                media="(max-width: 600px)"
+                srcset="images/catedralSM.webp"
+              />
+              <img src="images/catedral.webp" alt="Catedral" />
+            </picture>
           </div>
           <section class="texts">
             <h3>1. La Catedral</h3>
             <p>
-              Finalizada en 1618 y consagrada en 1716, no tenía sus torres cubiertas de
-              azulejos. Poseía unas torres más bajas y cuadradas, estilo
-              neoclásico, que colapsarían durante un terremoto de 1818.
+              Finalizada en 1618 y consagrada en 1716, no tenía sus torres
+              cubiertas de azulejos. Poseía unas torres más bajas y cuadradas,
+              estilo neoclásico, que colapsarían durante un terremoto de 1818.
             </p>
           </section>
         </div>
@@ -48,7 +57,13 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/rotonda.webp" alt="El Sagrario" />
+            <picture>
+              <source
+                media="(max-width: 600px)"
+                srcset="images/rotondaSM.webp"
+              />
+              <img src="images/rotonda.webp" alt="El Sagrario" />
+            </picture>
           </div>
           <section class="texts">
             <h3>2. El Sagrario</h3>
@@ -66,13 +81,20 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
+            <picture>
+              <source
+                media="(max-width: 600px)"
+                srcset="images/palacioRealSM.webp"
+              />
             <img src="images/palacioReal.webp" alt="Palacio Real" />
+            </picture>
           </div>
           <section class="texts">
             <h3>3. Palacio Real</h3>
             <p>
-              Finalizando cerca de 1790, sede de la Real Audiencia y residencia de los capitanes generales
-              de la Nueva Galicia. Hoy es el Palacio de Gobierno.
+              Finalizando cerca de 1790, sede de la Real Audiencia y residencia
+              de los capitanes generales de la Nueva Galicia. Hoy es el Palacio
+              de Gobierno.
             </p>
           </section>
         </div>
@@ -88,9 +110,9 @@
           <section class="texts">
             <h3>4. Palacio Episcopal</h3>
             <p>
-              Antigua residencia de los obispos de Guadalajara, terminado en 1712. El edificio fue
-              confiscado por el estado en 1860 y actualmente funciona
-              como el Palacio Municipal.
+              Antigua residencia de los obispos de Guadalajara, terminado en
+              1712. El edificio fue confiscado por el estado en 1860 y
+              actualmente funciona como el Palacio Municipal.
             </p>
           </section>
         </div>
@@ -106,7 +128,9 @@
           <section class="texts">
             <h3>5. Colegio Seminario</h3>
             <p>
-              Seminario Conciliar de San Jose, construido alrededor de 1750. La anterior sede estuvo en los terrenos que hoy ocupa la Rotonda. El edificio luego fue el Liceo de Varones y actualmente es el Museo Regional de Guadalajara.
+              Seminario Conciliar de San Jose, construido alrededor de 1750. El
+              edificio luego fue el Liceo de Varones y actualmente es el Museo
+              Regional de Guadalajara.
             </p>
           </section>
         </div>
@@ -122,8 +146,9 @@
           <section class="texts">
             <h3>6. Sto. Domingo</h3>
             <p>
-              Convento de los Dominicos, se inició alrededor de 1610. Destruido durante la guerra de reforma. Reconstruido como templo de San José de Gracia, Escuela Urbana No
-              19 "Niños Heroes" y Jardín Reforma.
+              Convento de los Dominicos, se inició alrededor de 1610. Destruido
+              durante la guerra de reforma. Reconstruido como templo de San José
+              de Gracia, Escuela Urbana No 19 "Niños Heroes" y Jardín Reforma.
             </p>
           </section>
         </div>
@@ -139,7 +164,10 @@
           <section class="texts">
             <h3>7. Hospital Real</h3>
             <p>
-              Hospital de San Miguel de Belén, obra de Fray Antonio Alcalde, terminado en 1793. Hoy en día es el hospital Civil Viejo, panteón de Belén (antes Sta Paula) y la parroquia de Nuestra Señoara de Belén (y San Miguel Arcangel).
+              Hospital de San Miguel de Belén, obra de Fray Antonio Alcalde,
+              terminado en 1793. Hoy en día es el hospital Civil Viejo, panteón
+              de Belén (antes Sta. Paula) y la parroquia de Nuestra Señora de
+              Belén (y San Miguel Arcangel).
             </p>
           </section>
         </div>
@@ -155,7 +183,9 @@
           <section class="texts">
             <h3>8. Parroquia de N.S. de Guadalupe</h3>
             <p>
-              Inaugurado y consagrado en 1781, fue financiada por Alcalde para fomentar la protección guadalupana contra los temblores en la ciudad. Conocida hoy como el Santuario.
+              Inaugurado y consagrado en 1781, fue financiada por Alcalde para
+              fomentar la protección guadalupana contra los temblores en la
+              ciudad. Conocida hoy como el Santuario.
             </p>
           </section>
         </div>
@@ -171,7 +201,10 @@
           <section class="texts">
             <h3>9. Casa de Enseñanza de Niñas</h3>
             <p>
-              Beaterio de sta Clara o Casa de Maestras de Caridad y Enseñanza, fundado en 1779, inició servicios en 1784. Tras la exclaustración (1859), el sitio fue transformado a hospital militar. En su lugar se levanta actualmente el Palacio Federal.
+              Beaterio de Sta. Clara o Casa de Maestras de Caridad y Enseñanza,
+              fundado en 1779, inició servicios en 1784. Tras la exclaustración
+              (1859), el sitio fue transformado a hospital militar. En su lugar
+              se levanta actualmente el Palacio Federal.
             </p>
           </section>
         </div>
@@ -187,9 +220,9 @@
           <section class="texts">
             <h3>10. Colegio de Niñas de Sn. Diego</h3>
             <p>
-              Fundado en 1703, originalmente un colegio para la educación de niños indígenas bajo
-              la tutela franciscana. Luego Liceo de niñas. Primer escuela normal
-              mixta. Actualmente secundaria Manuel M. Dieguez, al lado de la reconstruida Parroquia de San Diego de Alcalá.
+              Fundado in 1703. Luego fue la Primer escuela normal mixta.
+              Actualmente secundaria Manuel M. Dieguez, al lado de la
+              reconstruida Parroquia de San Diego de Alcalá.
             </p>
           </section>
         </div>
@@ -205,9 +238,10 @@
           <section class="texts">
             <h3>11. Sta. Monica</h3>
             <p>
-              Fundado en 1720, terminado en 1733. Covento destruido durante la guerra de reforma. Actualmente y el
-              templo de Santa Mónica, con su fachada joya del barroco y el
-              Edificio Arróniz, sede de la Secretaría de Cultura estatal.
+              Covento de monjas agustinas, fundado en 1720, expropiado durante
+              la guerra de reforma. Se mantiene en pie el templo, restaurado en
+              el 2016. El Edificio Arróniz fue Seminario, sede de la XV Zona
+              Militar y hoy es la Secretaría de Cultura estatal.
             </p>
           </section>
         </div>
@@ -223,8 +257,9 @@
           <section class="texts">
             <h3>12. Sn. Felipe</h3>
             <p>
-               Iniciada en 1752 y finalizada cerca de 1802. Sede del Oratorio de San Felipe Neri. Hoy permanece el templo,
-              estilo plateresco junto a la Preparatoria número uno de Jalisco.
+              Iniciada en 1752 y finalizada cerca de 1802. Sede del Oratorio y
+              del Colegio de San Felipe Neri. Hoy permanece el templo, junto a
+              la Preparatoria número uno de Jalisco, antes Colegio de San José.
             </p>
           </section>
         </div>
@@ -240,9 +275,9 @@
           <section class="texts">
             <h3>13. Las Capuchinas</h3>
             <p>
-              Fundado en 1761. Tras la reforma, gran parte del edificio fue seccionado. Se
-              conserva el templo y parte del convento aún en función. También sus terrenos
-              alberga el Museo de la Ciudad.
+              Fundado en 1761. Tras la reforma, gran parte del edificio fue
+              seccionado. Se conserva el templo y parte del convento aún en
+              función. También sus terrenos albergan el Museo de la Ciudad.
             </p>
           </section>
         </div>
@@ -258,9 +293,10 @@
           <section class="texts">
             <h3>14. Sta. Teresa</h3>
             <p>
-              Convento de las Carmelitas Descalzas, inició funciones en 1695. Durante el siglo XIX, el
-              complejo sufrió graves daños y demoliciones parciales. Coserva el
-              templde Sta Teresa y parte del claustro.
+              Convento de las Carmelitas Descalzas, inició funciones en 1695.
+              Durante el siglo XIX, el complejo sufrió graves daños y
+              demoliciones parciales. Coserva el templde Sta. Teresa y parte del
+              claustro.
             </p>
           </section>
         </div>
@@ -276,10 +312,10 @@
           <section class="texts">
             <h3>15. Jesus Mar[i]a</h3>
             <p>
-              Convento de monjas dominicas, fundado en 1722. El
-              convento fue luego un Orfanatorio del Sagrado Corazón para varones
-              Actualmente el Colegio Luis Silva, mientras que el templo sigue en
-              funciones y conserva su atrio.
+              Convento de monjas dominicas, fundado en 1722. El convento fue
+              luego el Orfanatorio del Sagrado Corazón para varones. Actualmente
+              el templo sigue en funciones (conserva su atrio original) junto a
+              el Colegio Luis Silva.
             </p>
           </section>
         </div>
@@ -290,12 +326,15 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/elCarmen.jpeg" alt="El Carmen" />
+            <img src="images/elCarmen.webp" alt="El Carmen" />
           </div>
           <section class="texts">
             <h3>16. El Carmen</h3>
             <p>
-              Data de 1758. Fragmentado por la guerra de reforma y la posterior construccion de Av. Juarez. Conserva el Templo de Nuestra Señora del Carmen y parte del claustro -hoy centro cultural. Sus huertos serían la Penitenciaría Escobedo, y luego el Parque Revolución.
+              Data de 1758. Fragmentado por la guerra de reforma y la posterior
+              construccion de Av. Juarez. Conserva el Templo de Nuestra Señora
+              del Carmen y parte del claustro —hoy centro cultural. Sus huertos
+              serían la Penitenciaría Escobedo, luego el Parque Revolución.
             </p>
           </section>
         </div>
@@ -306,12 +345,15 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/casaRecogidas.jpeg" alt="Casa Recogidas" />
+            <img src="images/casaRecogidas.webp" alt="Casa Recogidas" />
           </div>
           <section class="texts">
             <h3>17. Casa de Recogidas</h3>
             <p>
-              Concluida en 1745. Acogia huérfanas, viudas y mujeres en proceso de divorcio. Con el tiempo, el espacio se transformó en el Colegio Cervantes. Hoy en día es el Templo de Nuestra Señora del Pilar junto a comercios y un estacionamiento.
+              Concluida en 1745. Acogia huérfanas, viudas y mujeres sin marido.
+              Con el tiempo, el espacio se transformó en el Colegio Cervantes.
+              Hoy en día es el Templo de Nuestra Señora del Pilar junto a
+              comercios y un estacionamiento.
             </p>
           </section>
         </div>
@@ -322,13 +364,14 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/mexicaltzingo.jpeg" alt="Mexicaltzingo" />
+            <img src="images/mexicaltzingo.webp" alt="Mexicaltzingo" />
           </div>
           <section class="texts">
             <h3>18. Parroquia de Mexicalcingo</h3>
             <p>
-               La construcción de la primer capilla comenzó hacia 1580. El barrio se pobló con indígenas mexicas. En 1803 se demolió completamente la antigua capilla para construir una nueva iglesia. El templo de San Juan Bautista sigue siendo el
-              corazón de la zona.
+              La primer capilla comenzó hacia 1580. El barrio se pobló con
+              indígenas mexicas. En 1803 se demolió completamente para
+              construirle el actual templo de San Juan Bautista.
             </p>
           </section>
         </div>
@@ -339,13 +382,16 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/sanFrancisco.jpeg" alt="San Francisco" />
+            <img src="images/sanFrancisco.webp" alt="San Francisco" />
           </div>
           <section class="texts">
             <h3>19. Sn. Francisco</h3>
             <p>
-              El edificio conventual y el templo inicial se empezaron a levantar alrededor de 1580, llegó a ser el más grande en la ciudad. Hoy solo quedan los llamados "Dos Templos" (San Francisco y Aranzazú), el resto fue demolido al abrir la Av.
-              16 de Septiembre y Av. Revolucíon.
+              El edificio conventual y el templo inicial se empezaron a levantar
+              alrededor de 1580, llegó a ser el más grande en la ciudad. Hoy
+              solo quedan los llamados "Dos Templos" (San Francisco y Aranzazú),
+              el resto fue demolido al abrir la Av. 16 de Septiembre y Av.
+              Revolucíon.
             </p>
           </section>
         </div>
@@ -361,9 +407,10 @@
           <section class="texts">
             <h3>20. Parroquia de Jose de Analco</h3>
             <p>
-              Situado en un pueblo de indios independiente. fundada alrededor de 1543. La parroquia pensada
-              para convertirse en convento franciscano, es de las más antiguas
-              de la ciudad y sigue en funciones.
+              Situado en un pueblo de indios independiente, fundada alrededor de
+              1543. La parroquia fue contruida para convertirse en convento
+              franciscano. Es de las más antiguas de la ciudad y sigue en
+              funciones.
             </p>
           </section>
         </div>
@@ -379,10 +426,10 @@
           <section class="texts">
             <h3>21. Sn. Sevastian</h3>
             <p>
-              Fundada en 1542 como hermita, complementaba la vida religiosa del
-              sector indígena.La cruz atrial, que fue traída desde el convento
-              de Tetlán. Terminado en 1902 su relevancia en las fiestas
-              patronales del barrio. Incluye el Patio de los Ángeles.
+              Fundada alrededor de 1542 como hermita (la más antigua de la
+              ciudad), complementaba la vida religiosa del sector indígena. La
+              cruz atrial, que fue traída desde el convento de Tetlán. El actual
+              templo fue Terminado en 1902.
             </p>
           </section>
         </div>
@@ -399,8 +446,9 @@
             <h3>22. Sn. Juan de Dios</h3>
             <p>
               Originalmente un hospital atendido por los hermanos juaninos junto
-              al río, inició su construcción en 1726. Aunque el hospital desapareció, el templo permanece, junto
-              al Mercado Libertad, que ha sido construido en dos ocasiones
+              al río, inició su construcción en 1726. Aunque el hospital
+              desapareció el templo permanece, junto al Mercado Libertad
+              —construido en dos ocasiones.
             </p>
           </section>
         </div>
@@ -416,9 +464,9 @@
           <section class="texts">
             <h3>23. Sn. Agustin</h3>
             <p>
-              Convento agustino, construido alrededor de 1674. Su claustro principal
-              es hoy la sede de la Escuela de Música de la Universidad de
-              Guadalajara. El templo sigue en funciones.
+              Convento agustino, construido alrededor de 1674. Su claustro
+              principal es hoy la sede de la Escuela de Música de la Universidad
+              de Guadalajara. El templo sigue en funciones.
             </p>
           </section>
         </div>
@@ -434,7 +482,10 @@
           <section class="texts">
             <h3>24. Sta. Maria de Gracia</h3>
             <p>
-              Sitio de la primera catedral. Inició su construcción en 1661. Por la Ley de la Exclaustración, se fraccionó y una parte fue casas de vecindad. Hoy alberga el Palacio de Justicia y el hotel Hotel De Mendoza. El templo se mantiene funcionando.
+              Sitio de la primera catedral. Inició su construcción en 1661. Por
+              la Ley de la Exclaustración, se fraccionó y una parte fue casas de
+              vecindad. Hoy alberga el Palacio de Justicia y el hotel Hotel De
+              Mendoza. El templo se mantiene funcionando.
             </p>
           </section>
         </div>
@@ -450,7 +501,10 @@
           <section class="texts">
             <h3>25. La Merced</h3>
             <p>
-              Templo de la orden mercedaria y capilla del Señor del Rescate. Su construcción inició en 1650. En 1973 un sismo dañó la torre poniente del templo, que hubo de ser demolida. No se le repuso. De la torre oriente sólo se conserva el primer cuerpo.
+              Templo de la orden mercedaria y capilla del Señor del Rescate. Su
+              construcción inició en 1650. En 1973 un sismo dañó la torre
+              poniente del templo que hubo de ser demolida, no se le repuso. De
+              la torre oriente sólo se conserva el primer cuerpo.
             </p>
           </section>
         </div>
@@ -466,7 +520,10 @@
           <section class="texts">
             <h3>26. Universidad (Ex-Jesuitas)</h3>
             <p>
-              Colegio de Santo Tomás, fundado en 1591. Tras la expulsión jesuita, se convirtió en la Real Universidad de Guadalajara. Salón de sesiones del Congreso. Oficinas de Telégrafos. Hoy en día Biblioteca Ibermoaméricana Octavio Paz, edificio Lutecia y el Museo Ocampo.
+              Colegio de Santo Tomás, fundado en 1591. Tras la expulsión jesuita
+              sería la Real Universidad de Guadalajara, luego Salón de sesiones
+              del Congreso y Oficinas de Telégrafos. Hoy en día es la Biblioteca
+              Ibermoaméricana Octavio Paz, edificio Lutecia y el Museo Ocampo.
             </p>
           </section>
         </div>
@@ -477,13 +534,15 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/aduana.jpeg" alt="Aduana" />
+            <img src="images/aduana.webp" alt="Aduana" />
           </div>
           <section class="texts">
             <h3>27. Real Aduana</h3>
             <p>
               Punto de control para el cobro de impuestos a las mercancías que
-              entraban a la ciudad. Se intentó hacr Monte de Piedad. Luego se derribó para construir el Hotel San Francisco/ Hotel Imperial. Hoy centro universitario privado, 7 eleven, Dominos Pizza
+              entraban. El edificio se derribó para construir el Hotel San
+              Francisco, luego llamado Hotel Imperial (demolido en los 50s). Hoy
+              centro universitario privado, 7 eleven y Dominos Pizza.
             </p>
           </section>
         </div>
@@ -499,7 +558,9 @@
           <section class="texts">
             <h3>28. Coleg[io] de Sn. Juan</h3>
             <p>
-              Espacio educativo vinculado a la orden jesuita la Escuela libre de Ingenieros, fundado en 1695. Luego fue el cine Variedades. Ahora LARVA, Café Benito y Nuevo Mundo.
+              Espacio educativo vinculado a la orden jesuita. Conocida como la
+              Escuela libre de Ingenieros, fundada en 1695. Luego fue el cine
+              Variedades. Ahora LARVA, Café Benito y Nuevo Mundo.
             </p>
           </section>
         </div>
@@ -515,10 +576,10 @@
           <section class="texts">
             <h3>29. Casa de Ayun[tamien]to</h3>
             <p>
-              Antiguo centro administrativo civil del cabildo. Este edificio y
-              las casas señoriales aledañas de la familia Balbuena fueron
-              demolidos a mediados del siglo XX para abrir Plaza de
-              la Liberación.
+              Antiguo centro administrativo civil del cabildo, conocido también
+              como Palacio de Balbuena. Este edificio y las casas señoriales
+              aledañas fueron demolidos a mediados del siglo XX para abrir Plaza
+              de la Liberación.
             </p>
           </section>
         </div>
@@ -534,10 +595,10 @@
           <section class="texts">
             <h3>30. R[ea]l Fábrica de Tabacos</h3>
             <p>
-              Negocio de la familia Verea para el procesamiento de puros y
-              cigarros, conocido como el Estanco funcionó desde mediados del siglo XVIII. El edificio fue remodelado y
-              hoy sirve como la sede oficial del H. Congreso del Estado de
-              Jalisco.
+              Negocio de la familia Verea para procesar puros y cigarros.
+              Conocido como el Estanco, funcionó desde mediados del siglo
+              dieciocho. El edificio fue remodelado y hoy sirve como la sede
+              oficial del H. Congreso del Estado de Jalisco.
             </p>
           </section>
         </div>
@@ -554,8 +615,8 @@
             <h3>31. El Consulado</h3>
             <p>
               Institución encargada de regular el comercio y los pleitos
-              mercantiles en la región, creada en 1592. Alberga hoy locales de comida rápida tienda departamental y
-              estacionamiento.
+              mercantiles en la región, creada en 1592. Alberga hoy locales de
+              comida rápida, una tienda departamental y estacionamiento público.
             </p>
           </section>
         </div>
@@ -590,7 +651,8 @@
             <h3>33. Garita El Carmen</h3>
             <p>
               Puesto de vigilancia y cobro de alcabalas para quienes entraban
-              desde el poniente. También conocida como El Leal. Hoy en día calle Buzeta y Av Mexico -Plaza República-, aproximado.
+              desde el poniente. También conocida como El Leal. Hoy en día calle
+              Buzeta y Av. Mexico —Plaza República—, aproximado.
             </p>
           </section>
         </div>
@@ -606,7 +668,8 @@
           <section class="texts">
             <h3>33. Garita Santana</h3>
             <p>
-              Controlaba el acceso sur de Guadalajara. Aproximadamente en los cruces de Alemania Y Enrique Díaz de León.
+              Controlaba el acceso sur de Guadalajara. Aproximadamente en los
+              cruces de Alemania Y Enrique Díaz de León.
             </p>
           </section>
         </div>
@@ -622,7 +685,9 @@
           <section class="texts">
             <h3>33. Garita Buenavista</h3>
             <p>
-              O del Zalate. Ubicada en la salida hacia Zacatecas, hoy en día calles Alameda y Monte Caucaso. Entre la Primaria Republica de Panamá y Plaza 10 de Mayo.
+              O del Zalate. Ubicada en la salida hacia Zacatecas, hoy en día
+              calles Alameda y Monte Caucaso. Entre la Primaria Republica de
+              Panamá y Plaza 10 de Mayo. Sobrevive una columna.
             </p>
           </section>
         </div>
@@ -638,9 +703,9 @@
           <section class="texts">
             <h3>34. Puente d[e] las Damas</h3>
             <p>
-              Permitía cruzar el arroyo del
-              Arenal hacia Mexicaltzingo, construido en 1798. Durante años estuvo enterrado bajo la
-              calle Colón, hasta que fue redescubierto y funcionó como museo
+              Permitía cruzar el arroyo del Arenal hacia Mexicaltzingo,
+              construido alrededor de 1798. Durante años estuvo enterrado bajo
+              la calle Colón, hasta que fue redescubierto y funcionó como museo
               subterráneo de sitio. Entre avenida La Paz y Montenegro
             </p>
           </section>
@@ -658,26 +723,26 @@
             <h3>35. Caxa de Agua</h3>
             <p>
               Depósito fundamental del sistema de acueductos que traía agua
-              desde los manantiales de Los Colomos. Obra de Pedro Buzeta en 1770. Hoy en día los cruces de Calle Independencia y N Cumplido  aproximadamente.
+              desde los manantiales de Los Colomos. Obra de Pedro Buzeta en
+              1770. Hoy en día los cruces de Calle Independencia y N Cumplido,
+              aproximadamente.
             </p>
           </section>
         </div>
       </div>
-
 
       <div class="hotspot point-36">
         <div class="hotspot-connector"></div>
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img
-              src="images/riosur.webp"
-              alt="Rio Sur"
-            />
+            <img src="images/riosur.webp" alt="Rio Sur" />
           </div>
           <section class="texts">
             <h3>36. El Río Sur</h3>
-            <p>Madero Y La Calzada. Puente medrano</p>
+            <p>
+              Madero Y La Calzada. Dónde se localizó el llamado puente Medrano
+            </p>
           </section>
         </div>
       </div>
@@ -686,14 +751,14 @@
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img
-              src="images/rionorte.webp"
-              alt="Rio Norte"
-            />
+            <img src="images/rionorte.webp" alt="Rio Norte" />
           </div>
           <section class="texts">
             <h3>36. El Río Norte</h3>
-            <p>Juan Manuel y La Calzada. DEL BOLICHE, en la calle del chocolate </p>
+            <p>
+              Juan Manuel y La Calzada. En el cruce del boliche, o puente de
+              Chocolate.
+            </p>
           </section>
         </div>
       </div>
@@ -709,26 +774,26 @@
           </div>
           <section class="texts">
             <h3>36. El Río Centro</h3>
-            <p>Hidalgo y La Calzada. San Juan de Dios </p>
+            <p>Hidalgo y La Calzada. Puente San Juan de Dios</p>
           </section>
         </div>
       </div>
-
 
       <div class="hotspot point-37">
         <div class="hotspot-connector"></div>
         <div class="tooltip">
           <span class="close-btn">&times;</span>
           <div class="imageDiv">
-            <img src="images/tanque.jpeg" alt="El tanque" />
+            <img src="images/tanque.webp" alt="El tanque" />
           </div>
           <section class="texts">
             <h3>37. El Tanque</h3>
             <p>
-              Depósito de almacenamiento de agua situado en las zonas más bajas
-              del sur. Ayudaba a regular la presión del suministro para los
-              barrios de San Francisco y Mexicaltzingo antes de que el agua se
-              perdiera en el río. Calle Colón y Nueva Galicia, aproximadamente.
+              Depósito elevado de agua situado en las zona sur (actualmente
+              calle Colón y Nva. Galicia, aproximado.). Ayudaba a regular la
+              presión del suministro para los barrios de San Francisco y
+              Mexicaltzingo antes de que el agua se perdiera en el río. Parte de
+              la obra hidraúlica de 1770.
             </p>
           </section>
         </div>
