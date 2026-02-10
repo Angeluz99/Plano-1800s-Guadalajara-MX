@@ -609,6 +609,13 @@ body {
   }
 }
 
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #5d4037;
+  margin: 2rem 0;
+}
+
 @media (min-width: 400px) {
   .legend-list {
     column-count: 2;
