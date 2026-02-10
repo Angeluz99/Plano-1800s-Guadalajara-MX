@@ -25,7 +25,7 @@ body {
   border-radius: 0.3rem;
   cursor: pointer;
   box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
-  font-family:"Georgia", serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    z-index: 1001;
 }
 
@@ -42,7 +42,7 @@ body {
   width: 95vw;
 
   box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.5);
-  border: 0.2rem solid #4a3b2a;
+  border: 0.2rem double #4a3b2a;
   overflow: hidden;
   margin-top: 15rem;
   transition: opacity 0.3s ease, pointer-events 0.3s ease;
@@ -57,7 +57,7 @@ body {
   width: 95vw;
   max-width: 50rem;
   box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.5);
-  border: 0.2rem solid #4a3b2a;
+  border: 0.2rem double #4a3b2a;
   overflow: hidden;
   margin-top: 15rem;
   transition: opacity 0.3s ease, pointer-events 0.3s ease;
@@ -435,46 +435,26 @@ body {
   left: 24%;
 }
 
-/* --- CONECTOR LINEAL (Usando vw) --- */
-/* .hotspot-connector {
-  position: absolute;
-  width: 0.8vw;
-  height: 1000px;
-  background: rgba(0, 255, 255, 0.37);
-  top: -990px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  display: none;
-}
 
-
-.hotspot.active .hotspot-connector {
-  display: block;
-} */
 
 /* --- TOOLTIP Y LEYENDA (Estilos restantes) --- */
 
 .tooltip {
   visibility: hidden;
   opacity: 0;
-
   position: fixed;
   top: 27vw;
   left: 0;
   width: 100vw;
   padding: 3vw;
   box-sizing: border-box;
-
   display: flex;
   align-items: flex-start;
   gap: 3vw;
   background-color: #fff8e1;
   border-bottom: 2vw solid aquamarine;
-      border-top: 1.5vw solid aquamarine;
-
-  border-radius: 0 0 1rem 1rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+  border-top: 1.5vw solid aquamarine;
+  border-radius:1rem ;
   transition: all 0.3s ease;
   z-index: 1000;
   pointer-events: none;
@@ -554,10 +534,11 @@ body {
   margin: 2vw;
   padding: 3vw;
   background-color: #f8f0d8;
-  border: 0.2rem solid #4a3b2a;
+  border: 0.2rem dotted #4a3b2a;
+  border-top: 0.3rem double #4a3b2a;
   box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin-bottom: 5rem;
+  margin-bottom: 2vw;
 }
 
 .legend-container h2 {
@@ -611,10 +592,21 @@ body {
   }
 }
 
+.descripcion {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin: 2vw;
+  padding: 2vw;
+}
+
 footer {
+  background-color: rgb(43, 180, 91);
   text-align: center;
   font-size: 0.8rem;
   color: #5d4037;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 100%;
   margin: 2rem 0;
 }
 
