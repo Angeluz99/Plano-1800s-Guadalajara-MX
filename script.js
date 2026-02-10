@@ -7,6 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!toggleButton || !mapOriginal || !mapContainer) return;
 
+    // --- NUEVA LÓGICA: CARGA BAJO DEMANDA (Lazy Load Manual) ---
+    let isOriginalMapLoaded = false;
+
+    function loadOriginalMap() {
+        if (isOriginalMapLoaded) return; // Si ya se cargó, no hacer nada
+
+        const sources = mapOriginal.querySelectorAll('source');
+        const img = mapOriginal.querySelector('img');
+
+        // Pasar los datos de los atributos "data-" a los atributos reales
+        sources.forEach(source => {
+            if (source.dataset.srcset) {
+                source.srcset = source.dataset.srcset;
+            }
+        });
+
+        if (img && img.dataset.src) {
+            img.src = img.dataset.src;
+        }
+
+        isOriginalMapLoaded = true;
+        console.log("Cargando mapa original por primera vez...");
+    }
+
     // --- FUNCIÓN PARA DESACTIVAR TODO ---
     function deactivateAllHotspots() {
         allHotspots.forEach(h => h.classList.remove('active'));
@@ -14,13 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. LÓGICA DE VISIBILIDAD (Mapa Original / Locaciones) ---
     toggleButton.addEventListener('click', (e) => {
-        e.stopPropagation(); // Evita que el clic llegue al document
+        e.stopPropagation(); 
         const isOriginalMapVisible = mapOriginal.classList.contains('visible');
+
         if (!isOriginalMapVisible) {
+            // ACTIVAR CARGA: Solo cuando el usuario quiere ver el mapa original
+            loadOriginalMap();
+
             mapContainer.classList.add('hidden');
             mapOriginal.classList.add('visible');
             toggleButton.textContent = 'VER LOCACIONES';
-            deactivateAllHotspots(); // Limpia selección al cambiar de mapa
+            deactivateAllHotspots(); 
         } else {
             mapOriginal.classList.remove('visible');
             mapContainer.classList.remove('hidden');
@@ -68,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tooltip) {
             tooltip.addEventListener('click', (e) => {
                 e.stopPropagation(); 
-            });
+            });    
         }
 
         // D) Lógica del botón de cerrar (X)
