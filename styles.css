@@ -128,7 +128,7 @@ body {
 
 .is-face .hotspot::after {
   /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
-  font-size: 5px !important; 
+  font-size: 3px !important; 
   /* Ajuste de posición manual para corregir el 'misplace' */
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
@@ -138,9 +138,9 @@ body {
 
 .is-insta .hotspot::after {
   /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
-  font-size: 5px !important; 
+  font-size: 3px !important; 
   /* Ajuste de posición manual para corregir el 'misplace' */
-  color: #d32f2f;
+  color: #3e0808;
 
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
