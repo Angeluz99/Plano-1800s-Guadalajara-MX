@@ -5,10 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const allHotspots = document.querySelectorAll('.hotspot');
     const legendListItems = document.querySelectorAll('.legend-list li');
 
-    const isMetaBrowser = /FBAN|FBAV|Instagram/i.test(navigator.userAgent);
-    if (isMetaBrowser) {
-    document.body.classList.add('meta-browser');
-    }
+    
 
     if (!toggleButton || !mapOriginal || !mapContainer) return;
 

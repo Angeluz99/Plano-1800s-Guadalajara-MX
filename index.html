@@ -1124,6 +1124,19 @@
             <span class="fuentes"> <a href="fuentes.html" target="_blank" rel="noopener noreferrer" >FUENTES</a> </span>
 
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Obtenemos el User Agent de forma segura
+        const ua = navigator.userAgent || window.opera || "";
+        
+        // Buscamos las firmas específicas de Facebook e Instagram
+        const isMeta = /FBAN|FBAV|Instagram/i.test(ua);
+        
+        if (isMeta) {
+          document.documentElement.classList.add('is-meta');
+        }
+      });
+    </script>
 
     <footer>
       <p><strong>© 2026</strong></p>

@@ -105,6 +105,8 @@ body {
   border: 0.2vw solid rgba(0, 255, 255, 0.827);
 }
 
+
+
 /* ----------------------------------------------------------------- */
 /* --- TESTING: VISIBLE HOTSPOT NUMBERS (PARA AJUSTE DE COORDENADAS) --- */
 /* ----------------------------------------------------------------- */
@@ -122,6 +124,18 @@ body {
   border-radius: 25%;
   z-index: 15;
   pointer-events: none;
+}
+
+.is-meta .hotspot::after {
+  /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
+  font-size: 8px !important; 
+  /* Ajuste de posición manual para corregir el 'misplace' */
+  top: -9px !important; 
+  /* Evitamos que el navegador intente "ayudar" escalando el texto */
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+  /* Aseguramos que el centrado sea por transform y no por márgenes */
+  transform: translateX(-50%) scale(1) !important;
 }
 
 /* Contenido específico para cada punto (1 al 37) */
