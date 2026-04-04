@@ -92,8 +92,7 @@ body {
   cursor: pointer;
   animation: pulse 2s infinite;
   -webkit-tap-highlight-color: transparent;
-    -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+
   /* Agregamos la transición del box-shadow */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -115,7 +114,6 @@ body {
   top: -0.2rem; 
   left: 50%;
   transform: translateX(-50%);
-  line-height: 1; 
   font-size: 0.25rem;
   font-weight: bold;
   color: #4a3b2a;
@@ -128,7 +126,6 @@ body {
 
 .meta-browser .hotspot::after {
   font-size: 0.15rem; /* Reducimos un poco más para compensar su escalado */
-  transform: scale(0.9); /* Otra opción es escalar el pseudo-elemento completo */
 }
 
 
