@@ -3,6 +3,7 @@
   font-size: 100%;
 }
 
+
 /* --- ESTILOS BASE --- */
 body {
   margin: 0;
@@ -91,9 +92,13 @@ body {
   cursor: pointer;
   animation: pulse 2s infinite;
   -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   /* Agregamos la transición del box-shadow */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 /* ----------------------------------------------------------------- */
 /* --- CLASE UNIFICADA PARA RESALTAR/ACTIVAR (REEMPLAZA active-legend-hotspot) --- */
@@ -114,6 +119,7 @@ body {
   top: -0.2rem; /* Posiciona el número sobre el círculo */
   left: 50%;
   transform: translateX(-50%);
+  line-height: 1; 
   font-size: 0.25rem;
   font-weight: bold;
   color: #4a3b2a;
