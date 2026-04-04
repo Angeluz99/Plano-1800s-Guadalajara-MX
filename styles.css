@@ -64,7 +64,7 @@ body {
   transition: opacity 0.3s ease, pointer-events 0.3s ease;
 }
 
-/* Clases de Alternancia */
+
 .mapaoriginal.visible {
   opacity: 1;
   pointer-events: auto;
@@ -81,7 +81,7 @@ body {
   filter: sepia(30%);
 }
 
-/* --- HOTSPOTS (Usando vw) --- */
+
 .hotspot {
   position: absolute;
   width: 2vw;
@@ -100,9 +100,7 @@ body {
 
 
 
-/* ----------------------------------------------------------------- */
-/* --- CLASE UNIFICADA PARA RESALTAR/ACTIVAR (REEMPLAZA active-legend-hotspot) --- */
-/* ----------------------------------------------------------------- */
+
 .hotspot.active {
   /* Usar el color aqua translúcido para el estado activo */
   background-color: rgba(0, 255, 255, 0.068) !important;
@@ -110,13 +108,11 @@ body {
   border: 0.2vw solid rgba(0, 255, 255, 0.827);
 }
 
-/* ----------------------------------------------------------------- */
-/* --- TESTING: VISIBLE HOTSPOT NUMBERS (PARA AJUSTE DE COORDENADAS) --- */
-/* ----------------------------------------------------------------- */
+
 .hotspot::after {
-  /* Estilo base para el número */
+
   position: absolute;
-  top: -0.2rem; /* Posiciona el número sobre el círculo */
+  top: -0.2rem; 
   left: 50%;
   transform: translateX(-50%);
   line-height: 1; 
@@ -130,7 +126,12 @@ body {
   pointer-events: none;
 }
 
-/* Contenido específico para cada punto (1 al 37) */
+.meta-browser .hotspot::after {
+  font-size: 0.15rem; /* Reducimos un poco más para compensar su escalado */
+  transform: scale(0.9); /* Otra opción es escalar el pseudo-elemento completo */
+}
+
+
 .point-1::after {
   content: "1";
 }
