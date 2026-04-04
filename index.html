@@ -1130,10 +1130,16 @@
         const ua = navigator.userAgent || window.opera || "";
         
         // Buscamos las firmas específicas de Facebook e Instagram
-        const isMeta = /FBAN|FBAV|Instagram/i.test(ua);
+        const isFace = /FBAN|FBAV|/i.test(ua);
+
+        const isInsta = /Instagram/i.test(ua);
         
-        if (isMeta) {
-          document.documentElement.classList.add('is-meta');
+        if (isFace) {
+          document.documentElement.classList.add('is-face');
+        }
+
+        if (isInsta) {
+          document.documentElement.classList.add('is-insta');
         }
       });
     </script>
