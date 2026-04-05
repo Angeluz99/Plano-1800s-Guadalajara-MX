@@ -128,7 +128,7 @@ body {
 
 .is-face .hotspot::after {
   /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
-  font-size: 3px !important; 
+  font-size: 2px !important; 
   /* Ajuste de posición manual para corregir el 'misplace' */
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
@@ -138,7 +138,7 @@ body {
 
 .is-insta .hotspot::after {
   /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
-  font-size: 3px !important; 
+  font-size: 1px !important; 
   /* Ajuste de posición manual para corregir el 'misplace' */
   color: #3e0808;
 
