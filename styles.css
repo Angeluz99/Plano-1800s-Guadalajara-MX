@@ -138,8 +138,6 @@ body {
   /* 3. Forzamos el origen de la transformación arriba para que no flote */
   transform-origin: top center;
   
-  /* 4. IMPORTANTE: Eliminamos el fondo si el número se ve muy amontonado */
-  background-color: transparent !important; 
   
   /* 5. Aseguramos que no haya ajustes automáticos */
   -webkit-text-size-adjust: none !important;
