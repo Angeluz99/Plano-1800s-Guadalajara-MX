@@ -126,26 +126,24 @@ body {
   pointer-events: none;
 }
 
-.is-face .hotspot::after {
-  /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
-  font-size: 2px !important; 
-  /* Ajuste de posición manual para corregir el 'misplace' */
-  -webkit-text-size-adjust: none !important;
-  text-size-adjust: none !important;
-  /* Aseguramos que el centrado sea por transform y no por márgenes */
-  transform: translateX(-50%) scale(1) !important;
-}
-
+.is-face .hotspot::after,
 .is-insta .hotspot::after {
-  /* Forzamos el tamaño en píxeles para ignorar los ajustes del sistema */
-  font-size: 1px !important; 
-  /* Ajuste de posición manual para corregir el 'misplace' */
-  color: #3e0808;
-
+  /* 1. Usamos un tamaño base legal para el navegador */
+  font-size: 10px !important;
+  
+  /* 2. Lo reducimos visualmente (0.4 es aprox 4px, ajusta a tu gusto) */
+  /* El translateX mantiene el centrado horizontal */
+  transform: translateX(-50%) scale(0.4) !important;
+  
+  /* 3. Forzamos el origen de la transformación arriba para que no flote */
+  transform-origin: top center;
+  
+  /* 4. IMPORTANTE: Eliminamos el fondo si el número se ve muy amontonado */
+  background-color: transparent !important; 
+  
+  /* 5. Aseguramos que no haya ajustes automáticos */
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
-  /* Aseguramos que el centrado sea por transform y no por márgenes */
-  transform: translateX(-50%) scale(1) !important;
 }
 
 /* Contenido específico para cada punto (1 al 37) */

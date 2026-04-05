@@ -1126,22 +1126,15 @@
     </section>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        // Obtenemos el User Agent de forma segura
-        const ua = navigator.userAgent || window.opera || "";
-        
-        // Buscamos las firmas específicas de Facebook e Instagram
-        const isFace = /FBAN|FBAV|/i.test(ua);
+          const ua = navigator.userAgent || window.opera || "";
+          
+          // Corregido: eliminamos el pipe extra al final
+          const isFace = /FBAN|FBAV/i.test(ua);
+          const isInsta = /Instagram/i.test(ua);
 
-        const isInsta = /Instagram/i.test(ua);
-        
-        if (isFace) {
-          document.documentElement.classList.add('is-face');
-        }
-
-        if (isInsta) {
-          document.documentElement.classList.add('is-insta');
-        }
-      });
+          if (isFace) document.documentElement.classList.add('is-face');
+          if (isInsta) document.documentElement.classList.add('is-insta');
+        });
     </script>
 
     <footer>
