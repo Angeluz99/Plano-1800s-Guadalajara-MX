@@ -1,0 +1,68 @@
+.hero {
+  position: relative; /* Hace que este contenedor sea la referencia para el texto */
+  width: 100%;        /* O el ancho que desees para tu sección */
+  height: 80vw;      /* Ajusta la altura según la imagen o el diseño deseado */
+  overflow: hidden;   /* Evita que cualquier elemento se salga del contenedor */
+}
+
+.hero img {
+  width: 100%;   
+  /* subir el centro de la imagen dentro del contenedor */
+  height: auto;
+    position: absolute; /* Desconecta el texto del flujo normal y lo hace flotar */
+
+  top: -40%;
+  left: 0%;
+}
+
+.hero h1 {
+  position: absolute; /* Desconecta el texto del flujo normal y lo hace flotar */
+  
+  /* Posicionamiento: Centrado perfecto en medio de la imagen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* El truco definitivo para centrar ejes X y Y */
+  
+  /* Estilos visuales (Ajusta según la estética de tu sitio) */
+  margin: 0;
+  color: #ffffff;
+  font-family: "Georgia", serif;
+  font-size: 2.5rem;
+  text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.7); /* Sombra para que se lea sobre la imagen */
+  text-align: center;
+  width: 90%;         /* Evita que el texto toque los bordes si es muy largo */
+}
+
+.img-art1 {
+  width: 100%;
+  height: auto;
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+.img-art1 img {
+  width: 85%;
+  height: auto;
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.text-wrap {
+  max-width: 800px; /* Ajusta según el diseño deseado */
+  margin: 0 auto;   /* Centra el contenedor de texto */
+  padding: 10vw;    /* Espaciado interno para que el texto no toque los bordes */
+  text-align: justify; /* Justifica el texto para una apariencia más limpia */
+}
+
+.image-art2 {
+  width: 100%;
+  height: auto;
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.image-art2 img {
+  width: 85%;
+  height: auto;
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
