@@ -1,3 +1,9 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Color de fondo para toda la página */
+}
 .hero {
   position: relative; /* Hace que este contenedor sea la referencia para el texto */
   width: 100%;        /* O el ancho que desees para tu sección */
@@ -52,7 +58,8 @@
   text-align: justify; /* Justifica el texto para una apariencia más limpia */
 }
 .text-wrap p {
-  font-size: 1.2rem; /* Ajusta el tamaño de fuente según la estética deseada */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.3rem; /* Ajusta el tamaño de fuente según la estética deseada */
   line-height: 1.4;  /* Espaciado entre líneas para mejorar la legibilidad */
   color: #333;       /* Color del texto */
   margin-bottom: 1.5rem; /* Espacio inferior entre párrafos */
@@ -80,6 +87,7 @@
 }
 
 .heading2{
+  font-family: "Georgia", serif;
   font-size: 1.5rem; /* Tamaño de fuente para el subtítulo */
   margin-top: 2rem; /* Espacio superior */
   margin-bottom: 1rem; /* Espacio inferior */
