@@ -1,7 +1,7 @@
 .hero {
   position: relative; /* Hace que este contenedor sea la referencia para el texto */
   width: 100%;        /* O el ancho que desees para tu sección */
-  height: 80vw;      /* Ajusta la altura según la imagen o el diseño deseado */
+  height: 95vw;      /* Ajusta la altura según la imagen o el diseño deseado */
   overflow: hidden;   /* Evita que cualquier elemento se salga del contenedor */
 }
 
@@ -9,9 +9,9 @@
   width: 100%;   
   /* subir el centro de la imagen dentro del contenedor */
   height: auto;
-    position: absolute; /* Desconecta el texto del flujo normal y lo hace flotar */
+  position: absolute; /* Desconecta el texto del flujo normal y lo hace flotar */
 
-  top: -40%;
+  top: -30%;
   left: 0%;
 }
 
@@ -22,7 +22,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* El truco definitivo para centrar ejes X y Y */
-  
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad */
   /* Estilos visuales (Ajusta según la estética de tu sitio) */
   margin: 0;
   color: #ffffff;
@@ -30,7 +30,7 @@
   font-size: 2.5rem;
   text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.7); /* Sombra para que se lea sobre la imagen */
   text-align: center;
-  width: 90%;         /* Evita que el texto toque los bordes si es muy largo */
+  width: 100%;         /* Evita que el texto toque los bordes si es muy largo */
 }
 
 .img-art1 {
@@ -47,12 +47,24 @@
 }
 
 .text-wrap {
-  max-width: 800px; /* Ajusta según el diseño deseado */
   margin: 0 auto;   /* Centra el contenedor de texto */
   padding: 10vw;    /* Espaciado interno para que el texto no toque los bordes */
   text-align: justify; /* Justifica el texto para una apariencia más limpia */
 }
+.text-wrap p {
+  font-size: 1.2rem; /* Ajusta el tamaño de fuente según la estética deseada */
+  line-height: 1.4;  /* Espaciado entre líneas para mejorar la legibilidad */
+  color: #333;       /* Color del texto */
+  margin-bottom: 1.5rem; /* Espacio inferior entre párrafos */
+}
 
+.iconArt {
+  scale: .8;
+  display: flex; /* Usamos flexbox para centrar el icono */
+  justify-content: center; /* Centra horizontalmente */
+  margin-top: 1rem; /* Espacio superior */
+  margin-bottom: 1rem; /* Espacio inferior */
+}
 .image-art2 {
   width: 100%;
   height: auto;
@@ -65,4 +77,12 @@
   height: auto;
   display: block; /* Asegura que la imagen se comporte como un bloque */
   margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.heading2{
+  font-size: 1.5rem; /* Tamaño de fuente para el subtítulo */
+  margin-top: 2rem; /* Espacio superior */
+  margin-bottom: 1rem; /* Espacio inferior */
+  color: #333; /* Color del texto */
+  text-align: center; /* Centrar el subtítulo */
 }
