@@ -4,6 +4,11 @@ body{
   font-family: Arial, sans-serif;
   background-color: #f4f4f4; /* Color de fondo para toda la página */
 }
+
+a {
+  color: #ba890d; /* Color de los enlaces */
+  text-decoration: none; /* Sin subrayado */
+} 
 .hero {
   position: relative; /* Hace que este contenedor sea la referencia para el texto */
   width: 100%;        /* O el ancho que desees para tu sección */
@@ -19,8 +24,13 @@ body{
 
   top: -30%;
   left: 0%;
+
 }
 
+.rotate{
+    rotate: 1deg;
+
+}
 .hero h1 {
   position: absolute; /* Desconecta el texto del flujo normal y lo hace flotar */
   
@@ -51,6 +61,16 @@ body{
   display: block; /* Asegura que la imagen se comporte como un bloque */
   margin: 0 auto; /* Centra la imagen horizontalmente */
 }
+
+.img-text {
+  border-left: 2px solid #550000; 
+  padding-left: .5rem; /* Espacio entre el borde y el texto */
+  margin-inline: 1rem; /* Espacio superior para separar del contenido anterior */
+
+  font-size: 1rem; /* Tamaño de fuente para el texto de la imagen */
+  color: #555555; /* Color del texto */
+}
+
 
 .text-wrap {
   margin: 0 auto;   /* Centra el contenedor de texto */
@@ -94,3 +114,65 @@ body{
   color: #333; /* Color del texto */
   text-align: center; /* Centrar el subtítulo */
 }
+
+.icon1800 {
+  scale: .8;
+  display: flex; /* Usamos flexbox para centrar el icono */
+  justify-content: center; /* Centra horizontalmente */
+  margin-top: 1rem; /* Espacio superior */
+}
+
+.footnotes {
+  border-top: 2px solid #13620c; /* Añade un borde superior para separar las notas al pie */
+  font-size: 1rem; /* Aumenta el tamaño de fuente para las notas al pie */
+  margin-inline: 1rem; /* Aumenta el margen para pantallas más grandes */
+}
+
+.footnotes sup {
+    font-weight: bold;
+
+}
+
+/*responsive for more than 700 px*/
+@media (min-width: 700px) {
+  .hero h1 {
+    font-size: 3.5rem; /* Aumenta el tamaño de fuente para pantallas más grandes */
+  }
+  .text-wrap {
+    padding: 5vw; /* Reduce el padding para pantallas más grandes */
+  }
+  .img-art1 img, .image-art2 img {
+    width: 70%; /* Ajusta el ancho de las imágenes para pantallas más grandes */
+  }
+
+}
+
+/*responsive for more than 900 px*/
+@media (min-width: 900px) {
+  body{
+    width: 70%;
+    align-items: center;
+    margin-inline: auto;
+  }
+  .hero h1 {
+    position: relative; /* Desconecta el texto del flujo normal y lo hace flotar */
+    font-size: 4.5rem; /* Aumenta aún más el tamaño de fuente para pantallas muy grandes */
+  }
+
+  .hero img {
+    height: 50vw; /* Ajusta la altura de la imagen para pantallas muy grandes */
+    width: auto;
+    margin-inline: auto; /* Centra la imagen horizontalmente */
+    top: 0%; /* Ajusta la posición vertical de la imagen */
+  }
+  .text-wrap {
+    padding: 3vw; /* Ajusta el padding para pantallas muy grandes */
+  }
+
+  .rotate {
+    rotate: 0deg; /* Elimina la rotación para pantallas muy grandes */
+  }
+  .img-art1 img, .image-art2 img {
+    width: 60%; /* Ajusta el ancho de las imágenes para pantallas muy grandes */
+  }
+  }
